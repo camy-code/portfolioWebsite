@@ -1,11 +1,28 @@
 // About.js
 import React from 'react';
 import { Container, Typography, Grid, Paper } from '@mui/material';
-
-function About() {
+import Profile from "../components/Profile";
+import Education from "../components/Education";
+import Teach from "../components/Teach"
+import Hobbies from "../components/Hobbies"
+const About=()=> {
   return (
-<h1>Hello from about</h1>
+<Grid
+  container
+  direction="column"
+ 
+>
+    <Grid item backgroundColor="#ffcb77" > <Profile/> </Grid> {/* This is my profile page */}
+
+    <Grid item backgroundColor="#E3C0D3" > <Education/></Grid> {/* This is my profile page */}
+
+    <Grid item backgroundColor="#f7f7ff"> <Teach/></Grid>
+    
+    <Grid item  backgroundColor="#f7f7ff"> <Hobbies/></Grid>
+
+</Grid>
   );
 }
 
 export default About;
+// TODO: add a clean mapping function so it looks like very small code
