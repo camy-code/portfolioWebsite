@@ -2,23 +2,28 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import Profile from "../components/Profile";
+
+// We need to maybe delete these later
 import Education from "../components/Education";
 import Teach from "../components/Teach"
 import Hobbies from "../components/Hobbies"
+
+import JustLine from '../components/JustLine';
 const About=()=> {
   return (
 <Grid
   container
   direction="column"
  
+ 
 >
-    <Grid item backgroundColor="#ffcb77" > <Profile/> </Grid> {/* This is my profile page */}
+    <Grid item  > <Profile/> </Grid> {/* This is my profile page */}
 
-    <Grid item backgroundColor="#E3C0D3" > <Education/></Grid> {/* This is my profile page */}
+   <Grid item> <JustLine/></Grid>
 
-    <Grid item backgroundColor="#f7f7ff"> <Teach/></Grid>
-    
-    <Grid item  backgroundColor="#f7f7ff" paddingBottom={3}> <Hobbies/></Grid>
+   <Grid item> <Hobbies/></Grid>
+
+   <Grid item> <JustLine/></Grid>
 
 </Grid>
   );

@@ -46,7 +46,7 @@ spacing={4}>
   height={400}>
     
     <Grid item>
-        <Typography variant="h3">{name}</Typography>
+        <Typography variant="h4">{name}</Typography>
     </Grid>
     <Grid item>
         <Typography variant="h6">A bit about me</Typography>
@@ -64,10 +64,10 @@ direction={"row-reverse"}
 spacing={3}
 alignItems={"center"}
 marginTop={-15}>
-<Grid item > <CreateButton Mycolor="red" title="item 4" myLink="about"/> </Grid>
-<Grid item > <CreateButton Mycolor="red" title="item 3"/> </Grid> 
-<Grid item > <CreateButton Mycolor="red" title="Item 2"/> </Grid>
-<Grid item > <CreateButton Mycolor="red" title="Item 1"/> </Grid> 
+<Grid item > <CreateButton Mycolor="red" title="Resume" myLink="resume"/> </Grid>
+<Grid item > <CreateButton Mycolor="red" title="Projects" myLink="project"/> </Grid> 
+<Grid item > <CreateButton Mycolor="blue" title="Personal" myLink="about"/> </Grid>
+<Grid item > <CreateButton Mycolor="orange" title="Blog" myLink="blog"/> </Grid> 
 </Grid>
 
 </>

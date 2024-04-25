@@ -6,6 +6,9 @@ import About from './pages/About'
 import Layout from './pages/Layout';
 import Admin from './pages/Admin';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import Resume from './pages/Resume';
+import Project from './pages/Project';
 
 function App() {
   return (
@@ -14,8 +17,11 @@ function App() {
         <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="blog" element={<Blog />} />
         <Route path="admin" element={<Admin />} />
+
+        <Route path="project" element={<Project />} />
+        <Route path="resume" element={<Resume />} />
         
         </Route> 
         {/* This is the end of Layout */}
