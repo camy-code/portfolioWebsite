@@ -9,7 +9,7 @@ function Admin() {
       justifyContent="center"
       alignItems="center"
       backgroundColor="#E3C0D3"
-      style={{ height: "80vh" }}
+     
     >
 
        

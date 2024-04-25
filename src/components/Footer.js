@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer style={{ backgroundColor: '#227c9d', color: '#fff', padding: '20px', marginTop: 'auto' }}>
-      <Container maxWidth="md" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+    <footer style={{ backgroundColor: '#227c9d', color: '#fff', padding: '1vh', marginTop: 'auto' }}>
+      <Container maxWidth="md" style={{  justifyContent: 'row', alignItems: 'center', height: '100%' }}>
      
    
 <Grid

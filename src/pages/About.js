@@ -1,6 +1,6 @@
 // About.js
 import React from 'react';
-import { Container, Typography, Grid, Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 import Profile from "../components/Profile";
 import Education from "../components/Education";
 import Teach from "../components/Teach"
@@ -18,7 +18,7 @@ const About=()=> {
 
     <Grid item backgroundColor="#f7f7ff"> <Teach/></Grid>
     
-    <Grid item  backgroundColor="#f7f7ff"> <Hobbies/></Grid>
+    <Grid item  backgroundColor="#f7f7ff" paddingBottom={3}> <Hobbies/></Grid>
 
 </Grid>
   );

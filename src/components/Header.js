@@ -7,7 +7,9 @@ function Header() {
   return (
     <AppBar position="static" sx={{backgroundColor:'#227c9d'}}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        
+        
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
           Cam Warburton
         </Typography>
         <Button color="inherit" component={Link} to="/">Home</Button>
