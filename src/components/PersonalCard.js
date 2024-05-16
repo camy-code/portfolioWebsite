@@ -24,14 +24,17 @@ return <>
 <Grid container
 direction={"row"}
 justifyContent={"center"}
-spacing={4}>
+spacing={2}>
     <Grid item> 
     <Box
   component="img"
   sx={{
-    height: 475,
-    width: 475,
-    borderRadius: 100
+    height: 400,
+    width: 400,
+    minWidth: 100,
+    minHeight: 100,
+    borderRadius: 100,
+    marginBottom: -15
   }}
   alt="The house from the offer."
   src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"

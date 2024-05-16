@@ -6,3 +6,5 @@ style={{height:"1px",  backgroundColor:"black", marginLeft:"40px", marginRight:"
 }
 
 export default JustLine
+
+// Make sure to change to scrollio
