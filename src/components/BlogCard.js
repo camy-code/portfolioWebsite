@@ -11,10 +11,10 @@ const BlogCard = ({ image, title, description, content }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, margin: 2 }}>
+    <Card sx={{  width: '100%', maxWidth: '100%', margin: 2 }} >
       <CardMedia
         component="img"
-        height="140"
+        height="200" // May need to change this to scale
         image={image}
         alt={title}
       />
