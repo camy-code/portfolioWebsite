@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Project from './pages/Project';
+import IndProj from './pages/IndProj';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
 
         <Route path="project" element={<Project />} />
         <Route path="resume" element={<Resume />} />
+
+        <Route path="indproj" element={<IndProj/>} />
         
         </Route> 
         {/* This is the end of Layout */}

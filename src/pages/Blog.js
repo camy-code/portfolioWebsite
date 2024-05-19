@@ -43,7 +43,7 @@ const Blog = () => {
         </Grid>
       </Grid>
 
-      <JustLine /> 
+     <JustLine/>
 
       <Container>
         <Grid container direction="column" justifyContent="center" alignItems="center" spacing={2}>
@@ -67,4 +67,4 @@ const Blog = () => {
 
 export default Blog;
 
-// We need to make these post more thick! 
+// We need to work on projects now 
