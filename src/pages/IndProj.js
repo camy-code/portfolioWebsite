@@ -1,7 +1,15 @@
 import { Grid, Box, Typography } from "@mui/material"
 import JustLine from "../components/JustLine"
+import { useParams } from "react-router-dom"
+
+// The following is the page for the individual project.
 
 const IndProj = () => {
+
+  const { projectId, title } = useParams();
+  const decodedTitle = decodeURIComponent(title);
+
+
 return <>
 <Grid container direction={'column'} justifyContent={'flex-start'} alignItems={'center'}
 marginBottom={3}>
@@ -29,7 +37,7 @@ marginBottom={3}>
 
 <Grid item>
 
-    <Typography variant="h3">title 1</Typography>
+    <Typography variant="h3">{decodedTitle}</Typography>
     </Grid>
 
 <Grid item>

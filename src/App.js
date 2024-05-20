@@ -23,9 +23,11 @@ function App() {
 
         <Route path="project" element={<Project />} />
         <Route path="resume" element={<Resume />} />
-
-        <Route path="indproj" element={<IndProj/>} />
-        
+{/* ----------------- */}
+{/* This is where the special project page is going to be located. We cook */}
+        {/* <Route path="indproj" element={<IndProj/>} /> */}
+        <Route path="project/:projectId/:title" element={<IndProj />} />
+{/* -------------- */}
         </Route> 
         {/* This is the end of Layout */}
       

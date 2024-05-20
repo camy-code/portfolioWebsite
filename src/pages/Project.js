@@ -6,19 +6,22 @@ const blogPosts = [ {
     image: 'https://via.placeholder.com/150',
     title: 'Post 1',
     description: 'This is the description for post 1.',
-    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...'
+    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
+    id:'1'
 },
 {
     image: 'https://via.placeholder.com/150',
     title: 'Post 2',
     description: 'This is the description for post 1.',
-    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...'
+    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
+    id:'2'
 },
 {
     image: 'https://via.placeholder.com/150',
     title: 'Post 3',
     description: 'This is the description for post 1.',
-    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...'
+    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
+    id:'3'
 }
 
 
@@ -45,9 +48,8 @@ const Project= () => {
             <Grid item key={index} xs={12}  md={8} width={'90vh'}>
                 <ProjectCard
                     image={post.image}
-                    title={post.title}
-                    description={post.description}
-                    content={post.content}/>
+                    id={post.id}
+                    />
             </Grid>
           ))}
         </Grid>
@@ -63,3 +65,4 @@ const Project= () => {
 export default Project
 
 // This is the format we need for this and now we need to do react-router shit
+// Make a sample firebase app to get the hang of things! 
