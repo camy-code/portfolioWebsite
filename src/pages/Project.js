@@ -49,6 +49,7 @@ const Project= () => {
                 <ProjectCard
                     image={post.image}
                     id={post.id}
+                    title={post.title}
                     />
             </Grid>
           ))}

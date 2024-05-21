@@ -12,7 +12,7 @@ function Home() {
   direction="column"
   justifyContent="center"
   alignItems="center"
-  style={{height:"85vh"}}
+  style={{height:"90vh"}}
   backgroundColor="#E3C0D3"
 >
   <Grid item> <PersonalCard/></Grid>
