@@ -2,10 +2,10 @@ import { Grid, Typography } from "@mui/material"
 import JustLine from "../components/JustLine"
 import ProjectCard from "../components/ProjectCard"
 
-const blogPosts = [ {
+const projPosts = [ {
     image: 'https://via.placeholder.com/150',
     title: 'Post 1',
-    description: 'This is the description for post 1.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt dignissim viverra. Vivamus consectetur at nunc in fringilla. Morbi eget enim ac mi lacinia tristique. Proin et faucibus lorem. Pellentesque porta non urna nec dapibus. Donec a massa et magna mollis commodo. Cras mattis, quam a blandit pulvinar, leo ex tincidunt lectus, sit amet bibendum neque lectus eu felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In suscipit nisl mi, sit amet viverra odio fermentum ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus hendrerit vel felis eu feugiat. Fusce id diam vitae ante hendrerit sollicitudin.',
     content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
     id:'1'
 },
@@ -44,12 +44,13 @@ const Project= () => {
 
         <Grid item container direction="column" justifyContent="center" alignItems="center" spacing={2}>
             {/* This is where we are going to put Project posts */}
-            {blogPosts.map((post, index) => (
+            {projPosts.map((post, index) => (
             <Grid item key={index} xs={12}  md={8} width={'90vh'}>
                 <ProjectCard
                     image={post.image}
                     id={post.id}
                     title={post.title}
+                    desc={post.description}
                     />
             </Grid>
           ))}

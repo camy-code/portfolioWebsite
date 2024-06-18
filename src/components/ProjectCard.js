@@ -12,36 +12,23 @@ const ProjectCard = ({ projectId,  title, image, desc, content}) => { // Change 
   };
 
   return (
-    <Card sx={{ backgroundColor: "blue", maxWidth: '80vh', margin: '0 auto' }}>
+    <Card sx={{ backgroundColor: "blue", maxWidth: '100%',width:"100%", margin: ' auto' }}>
       <CardActionArea onClick={handleClick}>
-        <CardMedia>
-          <Box 
-            margin={2}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            height="30vh" // Adjust this as necessary to maintain aspect ratio
-          >    
-            <Box
-              component="img"
-              sx={{
-                objectFit: 'cover',
-                height: '100%',
-                width: '100%'
-              }}
-              alt="The house from the offer."
-              src='https://via.placeholder.com/150'
-            />
-          </Box>
-        </CardMedia>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Hello this is a temp spot as we try to get the pages working! 
-          </Typography>
-        </CardContent>
+      <CardMedia
+        component="img"
+        height="400" // May need to change this to scale
+        image={image}
+        alt={title}
+      />
+       <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {desc} helesloe flsefo l
+        </Typography>
+      </CardContent>
+      
        
       </CardActionArea>
     </Card>

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 // The following is the page for the individual project.
 
 const IndProj = () => {
-
+// So it looks like I need to do this for the other args
   const { projectId, title } = useParams();
   const decodedTitle = decodeURIComponent(title);
 
