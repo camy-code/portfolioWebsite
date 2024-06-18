@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, Collapse } from '@mui/material';
 
-const BlogCard = ({ image, title, description, content }) => {
+const BlogCard = ({ blogId,  title, image, desc, content }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -23,7 +23,7 @@ const BlogCard = ({ image, title, description, content }) => {
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {description}
+          {desc}
         </Typography>
       </CardContent>
       <CardActions>
