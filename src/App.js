@@ -10,6 +10,7 @@ import Blog from './pages/Blog';
 import Resume from './pages/Resume';
 import Project from './pages/Project';
 import IndProj from './pages/IndProj';
+import IndBlog from './pages/IndBlog';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
 {/* This is where the special project page is going to be located. We cook */}
         {/* <Route path="indproj" element={<IndProj/>} /> */}
         <Route path="project/:projectId/:title" element={<IndProj />} />
+        <Route path="blog/:blogId/:title" element={<IndBlog />} />
 {/* -------------- */}
         </Route> 
         {/* This is the end of Layout */}

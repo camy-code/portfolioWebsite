@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 
 // The following is the page for the individual project.
 
-const IndProj = () => {
+const IndBlog = () => {
 // So it looks like I need to do this for the other args
-  const { projectId, title } = useParams();
+  const { blogId, title } = useParams();
   const decodedTitle = decodeURIComponent(title);
   
   const navigate =useNavigate();
 
   const handleClick = () => {
-    navigate("/project")
+    navigate("/blog")
   }
 
 return <>
@@ -82,6 +82,6 @@ marginBottom={3}>
 }
 
 
-export default IndProj
+export default IndBlog
 
 // This is the format we need for this and now we need to do react-router shit

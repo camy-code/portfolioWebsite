@@ -10,18 +10,21 @@ import JustLine from '../components/JustLine';
 
 const blogPosts = [
   {
+    id: 1,
     image: 'https://via.placeholder.com/150',
     title: 'Post 1',
     description: 'This is the description for post 1.',
     content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...'
   },
   {
+    id: 2,
     image: 'https://via.placeholder.com/150',
     title: 'Post 2',
     description: 'This is the description for post 2.',
     content: 'This is the detailed content of post 2. Lorem ipsum dolor sit amet...'
   },
   {
+    id: 3,
     image: 'https://via.placeholder.com/150',
     title: 'Post 3',
     description: 'This is the description for post 3.',
@@ -50,6 +53,7 @@ const Blog = () => {
           {blogPosts.map((post, index) => (
             <Grid item key={index} xs={12}  md={8} width={'90vh'}>
               <BlogCard
+                blogId={post.id}
                 image={post.image}
                 title={post.title}
                 description={post.description}
