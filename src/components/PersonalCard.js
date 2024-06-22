@@ -24,17 +24,21 @@ return <>
 <Grid container
 direction={"row"}
 justifyContent={"center"}
-spacing={2}>
+alignItems={"center"}
+spacing={2}
+
+>
     <Grid item> 
     <Box
   component="img"
   sx={{
-    height: 400,
-    width: 400,
-    minWidth: 100,
-    minHeight: 100,
+    height: "50vh",
+    width: "50vh",
+    minWidth: 25,
+    minHeight: 25,
     borderRadius: 100,
-    marginBottom: -15
+    
+    marginTop:3
   }}
   alt="The house from the offer."
   src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
@@ -46,10 +50,12 @@ spacing={2}>
   justifyContent="center"
   alignItems="flex-start"
   width={450}
-  height={400}>
+  height={400}
+  marginTop={4}
+  >
     
     <Grid item>
-        <Typography variant="h4">{name}</Typography>
+        <Typography variant="h3">{name}</Typography>
     </Grid>
     <Grid item>
         <Typography variant="h6">A bit about me</Typography>
@@ -57,21 +63,28 @@ spacing={2}>
     <Grid item>
         <Typography variant="body1">{desc}</Typography>
     </Grid>
+    
 
-
-    </Grid>
-</Grid>
-
-<Grid container
-direction={"row-reverse"}
+    <Grid container item
+direction={"row"}
 spacing={3}
 alignItems={"center"}
-marginTop={-15}>
-<Grid item > <CreateButton Mycolor="red" title="Resume" myLink="resume"/> </Grid>
+
+
+>
+
 <Grid item > <CreateButton Mycolor="red" title="Projects" myLink="project"/> </Grid> 
 <Grid item > <CreateButton Mycolor="blue" title="Personal" myLink="about"/> </Grid>
 <Grid item > <CreateButton Mycolor="orange" title="Blog" myLink="blog"/> </Grid> 
 </Grid>
+
+    </Grid>
+
+
+
+</Grid>
+
+
 
 </>
 }

@@ -7,20 +7,23 @@ import { Grid } from '@mui/material';
 
 function Home() {
   return (
+    <div  style={{ backgroundColor: '#E3C0D3' }}>
     <Grid
   container
   direction="column"
-  justifyContent="center"
+  justifyContent="flex-start"
   alignItems="center"
-  style={{height:"90vh"}}
+    padding={"auto"}
+
   backgroundColor="#E3C0D3"
+  paddingTop={10}
 >
   <Grid item> <PersonalCard/></Grid>
 
 
 
 </Grid>
- 
+</div>
   );
 }
 

@@ -15,21 +15,8 @@ const blogPosts = [
     title: 'Post 1',
     description: 'This is the description for post 1.',
     content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...'
-  },
-  {
-    id: 2,
-    image: 'https://via.placeholder.com/150',
-    title: 'Post 2',
-    description: 'This is the description for post 2.',
-    content: 'This is the detailed content of post 2. Lorem ipsum dolor sit amet...'
-  },
-  {
-    id: 3,
-    image: 'https://via.placeholder.com/150',
-    title: 'Post 3',
-    description: 'This is the description for post 3.',
-    content: 'This is the detailed content of post 3. Lorem ipsum dolor sit amet...'
-  },
+  }
+ 
   // Add more posts as needed
   // This is going to take some work to change with firebase so we will add later
 ];
@@ -37,7 +24,7 @@ const blogPosts = [
 const Blog = () => {
   return (
     <Grid container marginBottom={2}>
-      <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5}>
+      <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5} marginBottom={4}>
         <Grid item>
           <Typography variant='h2'>Blog</Typography>
         </Grid>
@@ -49,7 +36,7 @@ const Blog = () => {
      <JustLine/>
 
       <Container>
-        <Grid container direction="column" justifyContent="center" alignItems="center" spacing={2}>
+        <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4}>
           {blogPosts.map((post, index) => (
             <Grid item key={index} xs={12}  md={8} width={'90vh'}>
               <BlogCard
