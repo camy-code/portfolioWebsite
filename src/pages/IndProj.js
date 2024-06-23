@@ -1,13 +1,19 @@
-import { Grid, Box, Typography, Button, CardActionArea, Card, Divider } from "@mui/material"
+import { Grid, Box, Typography,  CardActionArea, Card } from "@mui/material"
 import JustLine from "../components/JustLine"
-import { Link, useParams } from "react-router-dom"
+import {useParams } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
+
+// The following is latex shit we want to cook
+import Latex from 'react-latex-next';
+import 'katex/dist/katex.min.css';
+
+
 
 // The following is the page for the individual project.
 
 const IndProj = () => {
 // So it looks like I need to do this for the other args
-  const { projectId, title } = useParams();
+  const {  title } = useParams();
   const decodedTitle = decodeURIComponent(title);
   
   const navigate =useNavigate();
@@ -43,7 +49,14 @@ return <>
 <Grid container direction={'column'} justifyContent={'flex-start'} alignItems={'center'}
 marginBottom={3}>
 
-<Grid item marginTop={10}> 
+<Grid item>
+
+    <Typography variant="h3">{decodedTitle}</Typography>
+    </Grid>
+
+
+
+<Grid item > 
 <Box   margin={2}
             display="flex"
             justifyContent="center"
@@ -64,18 +77,23 @@ marginBottom={3}>
             </Box>
 </Grid>
 
-<Grid item>
 
-    <Typography variant="h3">{decodedTitle}</Typography>
-    </Grid>
 
 <Grid item>
     <Box sx={{width:'80vh'}}>
-    <Typography variant="body1">This is my desc t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by acc</Typography>
+      <Typography alignItems={"center"} sx={{lineHeight:"2", fontSize:'16px'}}>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+      but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<Latex>{`$x^2$`}</Latex>
+    
+    </Typography>
     </Box>
     </Grid>
 </Grid>
 <JustLine />
+
+
+
 </>
 
 
