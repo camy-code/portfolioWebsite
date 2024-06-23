@@ -11,6 +11,7 @@ import Resume from './pages/Resume';
 import Project from './pages/Project';
 import IndProj from './pages/IndProj';
 import IndBlog from './pages/IndBlog';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
 {/* -------------- */}
         </Route> 
         {/* This is the end of Layout */}
-      
+        <Route path='dashboard' element={<Dashboard/>}/>
+
     </Routes>
   </BrowserRouter>
  
