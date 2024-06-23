@@ -8,6 +8,20 @@ const projPosts = [ {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt dignissim viverra. Vivamus consectetur at nunc in fringilla. Morbi eget enim ac mi lacinia tristique. Proin et faucibus lorem. Pellentesque porta non urna nec dapibus. Donec a massa et magna mollis commodo. Cras mattis, quam a blandit pulvinar, leo ex tincidunt lectus, sit amet bibendum neque lectus eu felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In suscipit nisl mi, sit amet viverra odio fermentum ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus hendrerit vel felis eu feugiat. Fusce id diam vitae ante hendrerit sollicitudin.',
     content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
     id:'1'
+},
+{
+    image: 'https://via.placeholder.com/150',
+    title: 'Post 2',
+    description: 'This is the description for post 1.',
+    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
+    id:'2'
+},
+{
+    image: 'https://via.placeholder.com/150',
+    title: 'Post 3',
+    description: 'This is the description for post 1.',
+    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...',
+    id:'3'
 }
 
 
@@ -46,7 +60,7 @@ const Project= () => {
   
   
   </Grid> 
-  
+  <JustLine/>
   </>)
 }
 

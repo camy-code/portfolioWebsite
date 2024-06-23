@@ -11,6 +11,8 @@ import Resume from './pages/Resume';
 import Project from './pages/Project';
 import IndProj from './pages/IndProj';
 import IndBlog from './pages/IndBlog';
+import PrivateRoute from './components/PrivateRoute';
+import Dashboard from './pages/dashboard';
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
         <Route path="project/:projectId/:title" element={<IndProj />} />
         <Route path="blog/:blogId/:title" element={<IndBlog />} />
 {/* -------------- */}
+        {/* <PrivateRoute path="secure" element={<Dashboard/>}/> */ } 
+        <Route path="secure" element={<Dashboard />} />
+
         </Route> 
         {/* This is the end of Layout */}
       
