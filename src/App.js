@@ -1,5 +1,4 @@
-// src/App.js
-
+// App.js
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
@@ -13,31 +12,28 @@ import IndProj from './pages/IndProj';
 import IndBlog from './pages/IndBlog';
 import Dashboard from './pages/Dashboard';
 import LoginCard from './components/LoginCard';
-import { AuthProvider } from './context/AuthContext';
-import PrivateRoute from './components/PrivateRoute';
+import { AuthProvider, RequireAuth } from './services/AuthContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="blog" element={<Blog />} />
-            <Route path="admin" element={<Admin />} />
+            <Route path="admin" element={<RequireAuth><Admin /></RequireAuth>} />
             <Route path="project" element={<Project />} />
             <Route path="resume" element={<Resume />} />
             <Route path="project/:projectId/:title" element={<IndProj />} />
             <Route path="blog/:blogId/:title" element={<IndBlog />} />
+            <Route path="login" element={<LoginCard />} />
           </Route>
-          <Route path="/login" element={<LoginCard />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
+          <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
         </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

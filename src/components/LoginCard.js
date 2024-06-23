@@ -1,59 +1,60 @@
-// src/components/LoginCard.js
-
-import React, { useRef, useState } from 'react';
-// import { Paper, Typography, TextField, Grid, Button } from '@mui/material';
-import { useAuth } from '../context/AuthContext';
+// LoginCard.js
+import React, { useState } from 'react';
+import { Paper, Typography, TextField, Grid, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../services/firebase';
 
 function LoginCard() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const { login } = useAuth();
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // Updated from useHistory to useNavigate
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-
-
-      setError('');
-      setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      navigate('/dashboard'); // Updated from history.push to navigate
-
-      console.log("-----")
-      console.log("We got to the login page")
-      console.log(passwordRef.current.value)
-      console.log(emailRef.current.value)
-      console.log("-----")
-
-    } catch {
-      setError('Failed to log in');
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/dashboard');
+    } catch (error) {
+      setError(error.message);
     }
-
-    setLoading(false);
   };
 
   return (
-    <div>
-    <h2>Log In</h2>
-    {error && <p>{error}</p>}
-    <form onSubmit={handleSubmit}>
-      <input type="email" ref={emailRef} required placeholder="Email" />
-      <br/>
-      
-      <input type="password" ref={passwordRef} required placeholder="Password" />
-      <br/>
-      <button disabled={loading} type="submit">Log In</button>
-    </form>
-  </div>
+    <Paper style={{ padding: '50px', width: '50%', backgroundColor: "#EAE8EB", borderRadius: "20px" }}>
+      <Typography variant="h6" gutterBottom>
+        Login
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              fullWidth
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Password"
+              variant="outlined"
+              fullWidth
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Grid>
+        </Grid>
+        {error && <Typography color="error" variant="body2">{error}</Typography>}
+        <Button type="submit" variant="contained" style={{ marginTop: '20px', backgroundColor: "#ffcb77", color: "black" }}>
+          Login
+        </Button>
+      </form>
+    </Paper>
   );
 }
 
 export default LoginCard;
-
-// Camden.warburton@gmail.com
-// 123456
