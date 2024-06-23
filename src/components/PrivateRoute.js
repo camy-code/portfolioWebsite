@@ -1,21 +1,15 @@
-import { Route } from 'react-router-dom';
-import { useContext } from 'react';
+// src/components/PrivateRoute.js
+
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Navigate } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-    const { currentUser } = useContext(AuthContext);
+const PrivateRoute = () => {
+  const { currentUser } = useAuth();
 
-    return (
-        <Route
-            {...rest}
-            render={props =>
-                currentUser ? (
-                    <Component {...props} />
-                ) : (
-                    <Navigate to="/login" />
-                )
-            }
-        />
-    );
+  return currentUser ? <Outlet /> : <Navigate to="/" />; // We are saying that we want
 };
+// This looks like an inline conditional 
+
+
+export default PrivateRoute;
