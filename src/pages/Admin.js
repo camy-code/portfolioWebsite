@@ -22,5 +22,3 @@ function Admin() {
   );
 }
 export default Admin;
-
-// I need to make this look pretty later
