@@ -1,4 +1,4 @@
-import { Button, Gird, Grid } from "@mui/material"
+import { Button,  Grid } from "@mui/material"
 
 const Dashboard = ()  => {
     const handleClick = () =>{

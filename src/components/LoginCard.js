@@ -1,7 +1,7 @@
 // src/components/LoginCard.js
 
 import React, { useRef, useState } from 'react';
-import { Paper, Typography, TextField, Grid, Button } from '@mui/material';
+// import { Paper, Typography, TextField, Grid, Button } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,10 +17,19 @@ function LoginCard() {
     e.preventDefault();
 
     try {
+
+
       setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate('/'); // Updated from history.push to navigate
+      navigate('/dashboard'); // Updated from history.push to navigate
+
+      console.log("-----")
+      console.log("We got to the login page")
+      console.log(passwordRef.current.value)
+      console.log(emailRef.current.value)
+      console.log("-----")
+
     } catch {
       setError('Failed to log in');
     }
@@ -29,43 +38,18 @@ function LoginCard() {
   };
 
   return (
-    <Paper style={{ padding: '50px', width: '50%', backgroundColor: "#EAE8EB", borderRadius: "20px" }}>
-      <Typography variant="h6" gutterBottom>
-        Login
-      </Typography>
-      {error && <Typography color="error">{error}</Typography>}
-      <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              label="Email"
-              variant="outlined"
-              fullWidth
-              inputRef={emailRef}
-              required
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              label="Password"
-              variant="outlined"
-              fullWidth
-              type="password"
-              inputRef={passwordRef}
-              required
-            />
-          </Grid>
-        </Grid>
-        <Button
-          variant="contained"
-          type="submit"
-          disabled={loading}
-          style={{ marginTop: '20px', backgroundColor: "#ffcb77", color: "black" }}
-        >
-          Login
-        </Button>
-      </form>
-    </Paper>
+    <div>
+    <h2>Log In</h2>
+    {error && <p>{error}</p>}
+    <form onSubmit={handleSubmit}>
+      <input type="email" ref={emailRef} required placeholder="Email" />
+      <br/>
+      
+      <input type="password" ref={passwordRef} required placeholder="Password" />
+      <br/>
+      <button disabled={loading} type="submit">Log In</button>
+    </form>
+  </div>
   );
 }
 
