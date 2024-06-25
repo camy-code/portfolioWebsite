@@ -13,6 +13,7 @@ import IndBlog from './pages/IndBlog';
 import Dashboard from './pages/Dashboard';
 import LoginCard from './components/LoginCard';
 import { AuthProvider, RequireAuth } from './services/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -29,8 +30,12 @@ function App() {
             <Route path="project/:projectId/:title" element={<IndProj />} />
             <Route path="blog/:blogId/:title" element={<IndBlog />} />
             <Route path="login" element={<LoginCard />} />
+            
           </Route>
           <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+          
+
+         
         </Routes>
       </BrowserRouter>
     </AuthProvider>
@@ -38,3 +43,5 @@ function App() {
 }
 
 export default App;
+
+// 1. log out right after?

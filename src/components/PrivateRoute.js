@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../services/AuthContext';
 
 const PrivateRoute = () => {
   const { currentUser } = useAuth();
@@ -13,3 +13,5 @@ const PrivateRoute = () => {
 
 
 export default PrivateRoute;
+
+// I need to debug this 

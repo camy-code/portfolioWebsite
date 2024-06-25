@@ -40,9 +40,9 @@ export function RequireAuth({ children }) {
 
   useEffect(() => {
     if (!currentUser) {
-      navigate('/login');
+      navigate('/'); 
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, navigate]); // Look at this 
 
   return currentUser ? children : null;
 }

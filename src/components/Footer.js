@@ -17,10 +17,10 @@ function Footer() {
 >
 
 
-<Grid item><Button color="inherit" component={Link} to="/contact" variant="text">Contact</Button></Grid>
+
 
 <Grid item>
-<Button color="inherit" component={Link} to="/admin" variant="text">Admin</Button>
+<Button color="inherit" component={Link} to="/login" variant="text">Admin</Button>
     
     </Grid>
 
