@@ -12,7 +12,7 @@ function Profile() {
     alignItems={"center"} 
     paddingTop={15} paddingBottom={5} 
     backgroundColor="red"
-    
+ 
  >
       <Grid item><Typography variant="h2">Personal</Typography></Grid>
       <Grid item><Typography variant="h5">What I do with free time</Typography></Grid>
