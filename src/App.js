@@ -30,9 +30,9 @@ function App() {
             <Route path="project/:projectId/:title" element={<IndProj />} />
             <Route path="blog/:blogId/:title" element={<IndBlog />} />
             <Route path="login" element={<LoginCard />} />
-            
+            <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
           </Route>
-          <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+          
           
 
          
