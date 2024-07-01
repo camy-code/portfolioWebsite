@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Button, Typography, Collapse } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const BlogCard = ({ blogId,  title, image, desc, content }) => {
+const BlogCard = ({ blogId,  title, image, desc }) => {
   const navigate =useNavigate();
 
   const handleClick = () => {

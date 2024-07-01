@@ -13,7 +13,7 @@ import IndBlog from './pages/IndBlog';
 import Dashboard from './pages/Dashboard';
 import LoginCard from './components/LoginCard';
 import { AuthProvider, RequireAuth } from './services/AuthContext';
-import PrivateRoute from './components/PrivateRoute';
+import { NoRequireAuth } from './services/AuthContext';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="blog" element={<Blog />} />
-            <Route path="admin" element={<RequireAuth><Admin /></RequireAuth>} />
+            <Route path="admin" element={<NoRequireAuth><Admin /></NoRequireAuth>} />
             <Route path="project" element={<Project />} />
             <Route path="resume" element={<Resume />} />
             <Route path="project/:projectId/:title" element={<IndProj />} />

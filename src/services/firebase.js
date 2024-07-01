@@ -1,13 +1,11 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+
 // import { getAnalytics } from "firebase/analytics";
 
-// import firebase from 'firebase/app';
-import 'firebase/auth';
-import { getAuth } from "firebase/auth";
-
-import 'firebase/firestore';
-import 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,14 +22,20 @@ const firebaseConfig = {
 };
 
 
-
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-export const auth = getAuth(app);
-export const firestore = app.firestore();
-export const storage = app.storage();
-export default app;
+const app=initializeApp(firebaseConfig);
+
+// Initialize Firebase Authentication
+const auth = getAuth(app);
+
+// Initialize Firestore
+const firestore = getFirestore(app);
+
+// Initialize Firebase Storage
+const storage = getStorage();
+
+export { auth, firestore, storage };
+
 
 
 // Make dashboard with sign-out shit

@@ -46,3 +46,17 @@ export function RequireAuth({ children }) {
 
   return currentUser ? children : null;
 }
+
+
+export function NoRequireAuth({ children }) {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/'); 
+    }
+  }, [currentUser, navigate]); // Look at this 
+
+  return currentUser ? children : null;
+}
