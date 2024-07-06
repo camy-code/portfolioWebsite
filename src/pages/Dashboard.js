@@ -1,7 +1,9 @@
-import { Button,  Grid } from "@mui/material"
+import { Button,  Grid, Typography } from "@mui/material"
 import { signOut } from "firebase/auth"
 import { auth } from '../services/firebase';
 import { useState } from "react";
+
+import {JustLine} from "../components/JustLine"
 
 const Dashboard = ()  => {
     const [error, setError] = useState(null);
@@ -17,10 +19,20 @@ const Dashboard = ()  => {
         }
       };
 
-    return <Grid container direction={"column"} justifyContent={"flex-start"} alignContent={"center"}>
-        <Grid item><h1>Hello from dashboard</h1></Grid>
-        <Grid><Button onClick={handleClick}>Log out</Button></Grid>
-    </Grid>
+    return <>
+    <Grid
+  container
+  direction="column"
+  justifyContent="flex-start"
+  
+>
+  <Grid item sx={{backgroundColor:"red"}}>
+    <Typography variant="h3" align="center" padding={3}>Welcome Cam</Typography>
+    
+     </Grid>    
+
+</Grid>
+    </>
 
 }
 

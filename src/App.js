@@ -14,6 +14,7 @@ import Dashboard from './pages/Dashboard';
 import LoginCard from './components/LoginCard';
 import { AuthProvider, RequireAuth } from './services/AuthContext';
 import { NoRequireAuth } from './services/AuthContext';
+import Writeblog from './pages/WriteBlog';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             <Route path="blog/:blogId/:title" element={<IndBlog />} />
             <Route path="login" element={<LoginCard />} />
             <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+
+        {/* This is only temp */}
+            <Route path="temp" element={<Writeblog/>}/>
           </Route>
           
           
