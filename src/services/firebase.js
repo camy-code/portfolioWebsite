@@ -29,12 +29,12 @@ const app=initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Initialize Firestore
-const firestore = getFirestore(app);
+const db = getFirestore(app);
 
 // Initialize Firebase Storage
 const storage = getStorage();
 
-export { auth, firestore, storage };
+export { auth, db, storage };
 
 
 

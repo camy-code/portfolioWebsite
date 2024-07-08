@@ -4,36 +4,36 @@ import { auth } from '../services/firebase';
 import { useState } from "react";
 
 import {JustLine} from "../components/JustLine"
+import BlogAdmin from "../components/BlogAdmin";
+import ProjAdmin from "../components/ProjAdmin";
 
 const Dashboard = ()  => {
-    const [error, setError] = useState(null);
+    
 
 
-    const handleClick = async (e) => {
-        e.preventDefault();
-        try {
-          await signOut(auth);
-          
-        } catch (error) {
-          setError(error.message);
-        }
-      };
 
     return <>
-    <Grid
-  container
-  direction="column"
-  justifyContent="flex-start"
   
->
-  <Grid item sx={{backgroundColor:"red"}}>
-    <Typography variant="h3" align="center" padding={3}>Welcome Cam</Typography>
-    
-     </Grid>    
+  
+  <Grid container direction={"column"} spacing={4} justifyContent={"flex-start"} alignItems={"center"} marginTop={3}>
 
-</Grid>
-    </>
+  <Grid item><Typography variant="h4" sx={{marginLeft:"25vh", marginRight:"75vh"}}>Blogs</Typography></Grid>
 
+  <Grid item> <BlogAdmin/></Grid>
+
+  <Grid item> <Typography variant="h4" sx={{marginLeft:"25vh", marginRight:"75vh"}}>Projects</Typography></Grid>
+
+  <Grid item><ProjAdmin/></Grid>
+
+  <Grid item>
+  <Grid item container direction={"row"} spacing={2}>
+    <Grid item><Button variant="outlined" style={{  backgroundColor: "#ffcb77", color: "black" }}>Create Project</Button></Grid>
+    <Grid item> <Button variant="outlined" style={{  backgroundColor: "#40E0D0", color: "black" }}>Create Blog</Button></Grid>
+  </Grid>
+  </Grid>
+
+  </Grid>
+  </>
 }
 
 export default Dashboard
