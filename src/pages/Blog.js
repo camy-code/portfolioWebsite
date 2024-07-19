@@ -6,7 +6,9 @@ import { Container, Grid, Typography } from '@mui/material';
 import BlogCard from '../components/BlogCard';
 import JustLine from '../components/JustLine';
 
-
+import { useState,useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from "../services/firebase";
 
 const blogPosts = [
   {
@@ -22,6 +24,28 @@ const blogPosts = [
 ];
 
 const Blog = () => {
+  const [blogPosts, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const blogCollection = collection(db, 'blogPosts');
+        const blogSnapshot = await getDocs(blogCollection);
+        const blogList = blogSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setBlogs(blogList);
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+
+
   return (
     <Grid container marginBottom={2}>
       <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5} marginBottom={4}>
@@ -43,7 +67,7 @@ const Blog = () => {
                 blogId={post.id}
                 image={post.image}
                 title={post.title}
-                description={post.description}
+                desc={post.desc}
                 content={post.content}
               />
             </Grid>

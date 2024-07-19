@@ -3,17 +3,54 @@ import JustLine from "../components/JustLine"
 import { Link, useParams } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
 
+import { useState,useEffect } from "react";
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from "../services/firebase";
+
 // The following is the page for the individual project.
 
 const IndBlog = () => {
 // So it looks like I need to do this for the other args
-  const { blogId, title } = useParams();
-  const decodedTitle = decodeURIComponent(title);
+  const { blogId } = useParams();
+  const id = decodeURIComponent(blogId);
   
   const navigate =useNavigate();
 
   const handleClick = () => {
     navigate("/blog")
+  }
+
+  const [blogPost, setBlogPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+  useEffect(() => {
+    const fetchBlogPost = async () => {
+      try {
+        const blogDocRef = doc(db, 'blogPosts', id);
+        const blogDoc = await getDoc(blogDocRef);
+        if (blogDoc.exists()) {
+          setBlogPost(blogDoc.data());
+        } else {
+          setError('Blog post not found');
+        }
+      } catch (err) {
+        setError('Error fetching blog post: ' + err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPost();
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
 return <>
@@ -58,20 +95,20 @@ marginBottom={3}>
                 width: '100%',
                 
               }}
-              alt="The house from the offer."
-              src='https://via.placeholder.com/150'
+              alt="This is a title image"
+              src={blogPost.imageUrl}
             />
             </Box>
 </Grid>
 
 <Grid item>
 
-    <Typography variant="h3">{decodedTitle}</Typography>
+    <Typography variant="h3">{blogPost.title}</Typography>
     </Grid>
 
 <Grid item>
     <Box sx={{width:'80vh'}}>
-    <Typography variant="body1">This is my desc t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by acc</Typography>
+    <Typography variant="body1">{blogPost.post}</Typography>
     </Box>
     </Grid>
 </Grid>

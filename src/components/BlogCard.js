@@ -8,8 +8,8 @@ const BlogCard = ({ blogId,  title, image, desc }) => {
   const navigate =useNavigate();
 
   const handleClick = () => {
-    const encodedTitle = encodeURIComponent(title);
-    navigate(`/blog/${blogId}/${encodedTitle}`);
+    const encodedblogId = encodeURIComponent(blogId);
+    navigate(`/blog/${encodedblogId}`);
   };
 
   return ( <Card sx={{ backgroundColor: "blue", maxWidth: '100%',width:"100%", margin: ' auto' }}>
@@ -17,7 +17,7 @@ const BlogCard = ({ blogId,  title, image, desc }) => {
     <CardMedia
       component="img"
       height="400" // May need to change this to scale
-      image={image}
+      image={'https://via.placeholder.com/150'}
       alt={title}
     />
      <CardContent>
@@ -25,7 +25,7 @@ const BlogCard = ({ blogId,  title, image, desc }) => {
         {title}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        {desc} helesloe flsefo l
+        {desc} 
       </Typography>
     </CardContent>
     

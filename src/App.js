@@ -15,6 +15,7 @@ import LoginCard from './components/LoginCard';
 import { AuthProvider, RequireAuth } from './services/AuthContext';
 import { NoRequireAuth } from './services/AuthContext';
 import Writeblog from './pages/WriteBlog';
+import EditBlog from './pages/EditBlog';
 
 function App() {
   return (
@@ -29,13 +30,16 @@ function App() {
             <Route path="project" element={<Project />} />
             <Route path="resume" element={<Resume />} />
             <Route path="project/:projectId/:title" element={<IndProj />} />
-            <Route path="blog/:blogId/:title" element={<IndBlog />} />
+            <Route path="blog/:blogId" element={<IndBlog />} />
 
             <Route path="login" element={<LoginCard />} />
             <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
 
         {/* This is only temp */}
-            <Route path="temp" element={<RequireAuth><Writeblog/></RequireAuth>}/>
+            <Route path="writeblog" element={<RequireAuth><Writeblog/></RequireAuth>}/>
+
+            <Route path="editblog/:blogId" element={<RequireAuth><EditBlog/></RequireAuth>}/>
+
           </Route>
           
           

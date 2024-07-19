@@ -3,6 +3,8 @@ import { signOut } from "firebase/auth"
 import { auth } from '../services/firebase';
 import { useState } from "react";
 
+import { Link } from 'react-router-dom';
+
 import {JustLine} from "../components/JustLine"
 import BlogAdmin from "../components/BlogAdmin";
 import ProjAdmin from "../components/ProjAdmin";
@@ -27,8 +29,8 @@ const Dashboard = ()  => {
 
   <Grid item>
   <Grid item container direction={"row"} spacing={2}>
-    <Grid item><Button variant="outlined" style={{  backgroundColor: "#ffcb77", color: "black" }}>Create Project</Button></Grid>
-    <Grid item> <Button variant="outlined" style={{  backgroundColor: "#40E0D0", color: "black" }}>Create Blog</Button></Grid>
+    <Grid item><Button variant="outlined" style={{  backgroundColor: "#ffcb77", color: "black" }} >Create Project</Button></Grid>
+    <Grid item> <Button variant="outlined" style={{  backgroundColor: "#40E0D0", color: "black" }} component={Link} to="/writeblog">Create Blog</Button></Grid>
   </Grid>
   </Grid>
 
