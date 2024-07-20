@@ -51,10 +51,6 @@ const EditProj= () => {
     
         fetchProjPost();
 
-        
-
-
-
       }, []);
 
       useEffect(()=>{

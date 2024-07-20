@@ -10,7 +10,7 @@ const desc = "I am a undergraduate student studying at the University of Calgary
 const CreateButton = ({title, Mycolor,myLink}) => {
     return (
     
- <Button component={Link} to={myLink} sx={{width:100, height:100, background:Mycolor,'&:hover': { // Customizes the hover state
+ <Button component={Link} to={myLink} sx={{width:110, height:110, background:Mycolor,'&:hover': { // Customizes the hover state
     backgroundColor: "#FFFAFF"}, borderRadius:75, color:"#000000",border:"2px solid black"
     }}>
   {title}</Button>  
@@ -25,7 +25,7 @@ return <>
 direction={"row"}
 justifyContent={"center"}
 alignItems={"center"}
-spacing={2}
+spacing={6}
 
 >
     <Grid item> 
@@ -49,9 +49,10 @@ spacing={2}
     direction="column"
   justifyContent="center"
   alignItems="flex-start"
-  width={450}
-  height={400}
-  marginTop={5}
+  width={"60vh"}
+  
+
+
   >
     
     <Grid item>
@@ -67,9 +68,9 @@ spacing={2}
 
     <Grid container item
 direction={"row"}
-spacing={3}
+spacing={2}
 alignItems={"center"}
-
+marginTop={3}
 
 >
 

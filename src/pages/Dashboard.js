@@ -31,6 +31,7 @@ const Dashboard = ()  => {
   <Grid item container direction={"row"} spacing={2}>
     <Grid item><Button variant="outlined" style={{  backgroundColor: "#ffcb77", color: "black" }} component={Link} to="/writeproj" >Create Project</Button></Grid>
     <Grid item> <Button variant="outlined" style={{  backgroundColor: "#40E0D0", color: "black" }} component={Link} to="/writeblog">Create Blog</Button></Grid>
+    <Grid item> <Button variant="outlined" style={{  backgroundColor: "red", color: "black" }} component={Link} to="/edithomepage">Edit homepage</Button></Grid>
   </Grid>
   </Grid>
 

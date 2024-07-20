@@ -5,16 +5,13 @@ import React from 'react';
 import PersonalCard from '../components/PersonalCard';
 import { Grid } from '@mui/material';
 
-// ---- DELETE later
-import { useAuth } from '../services/AuthContext';
-// ----
 
 function Home() {
-  const { currentUser } = useAuth();
+
 
 
   return (
-    <div  style={{ backgroundColor: '#E3C0D3' }}>
+    <div  style={{  height:"auto" }}>
     <Grid
   container
   direction="column"
@@ -28,8 +25,7 @@ function Home() {
   <Grid item> <PersonalCard/></Grid>
 
   
-    {/* Please delete this later!  */}
-  <Grid item ><h1>{currentUser ? (<h1>IN</h1>):(<h1>OUT</h1>)}</h1></Grid>
+
 
 
 

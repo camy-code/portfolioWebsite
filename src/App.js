@@ -19,6 +19,7 @@ import EditBlog from './pages/EditBlog';
 
 import WriteProj from './pages/WriteProj';
 import EditProj from './pages/EditProj';
+import EditHome from './pages/EditHome';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
 
             <Route path="editblog/:blogId" element={<RequireAuth><EditBlog/></RequireAuth>}/>
             <Route path="editproj/:projId" element={<RequireAuth><EditProj/></RequireAuth>}/>
+
+
+            <Route path="edithomepage" element={<RequireAuth><EditHome/></RequireAuth>}/>
 
           </Route>
           
