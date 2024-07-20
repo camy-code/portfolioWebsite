@@ -29,7 +29,7 @@ const Dashboard = ()  => {
 
   <Grid item>
   <Grid item container direction={"row"} spacing={2}>
-    <Grid item><Button variant="outlined" style={{  backgroundColor: "#ffcb77", color: "black" }} >Create Project</Button></Grid>
+    <Grid item><Button variant="outlined" style={{  backgroundColor: "#ffcb77", color: "black" }} component={Link} to="/writeproj" >Create Project</Button></Grid>
     <Grid item> <Button variant="outlined" style={{  backgroundColor: "#40E0D0", color: "black" }} component={Link} to="/writeblog">Create Blog</Button></Grid>
   </Grid>
   </Grid>

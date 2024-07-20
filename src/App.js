@@ -17,6 +17,9 @@ import { NoRequireAuth } from './services/AuthContext';
 import Writeblog from './pages/WriteBlog';
 import EditBlog from './pages/EditBlog';
 
+import WriteProj from './pages/WriteProj';
+import EditProj from './pages/EditProj';
+
 function App() {
   return (
     <AuthProvider>
@@ -38,7 +41,10 @@ function App() {
         {/* This is only temp */}
             <Route path="writeblog" element={<RequireAuth><Writeblog/></RequireAuth>}/>
 
+            <Route path="writeproj" element={<RequireAuth><WriteProj/></RequireAuth>}/>
+
             <Route path="editblog/:blogId" element={<RequireAuth><EditBlog/></RequireAuth>}/>
+            <Route path="editproj/:projId" element={<RequireAuth><EditProj/></RequireAuth>}/>
 
           </Route>
           

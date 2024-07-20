@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const UploadButton = ({ onFileUpload }) => {
+const UploadButton = ({ onFileUpload, words}) => {
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
@@ -20,7 +20,7 @@ const UploadButton = ({ onFileUpload }) => {
       <input {...getInputProps()} />
      
       <Button variant="contained" color="primary" sx={{ marginTop: '10px' }}>
-        Upload Image
+        {words}
       </Button>
     </Box>
   );

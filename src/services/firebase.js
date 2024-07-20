@@ -32,7 +32,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // Initialize Firebase Storage
-const storage = getStorage();
+const storage = getStorage(app);
 
 export { auth, db, storage };
 

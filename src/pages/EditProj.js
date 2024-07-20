@@ -11,7 +11,7 @@ import { doc, getDoc,updateDoc } from 'firebase/firestore';
 import { useEffect } from "react";
 
 
-const EditBlog = () => {
+const EditProj= () => {
 
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
@@ -19,12 +19,12 @@ const EditBlog = () => {
     const [imageUrl, setImageUrl] = useState(""); // This is for images
 
 
-    const { blogId } = useParams();
-    const id = decodeURIComponent(blogId);
+    const { projId } = useParams();
+    const id = decodeURIComponent(projId);
 
     console.log(id)
 
-    const [blogPost, setBlogPost] = useState(null);
+    const [projPost, setProjPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -32,15 +32,15 @@ const EditBlog = () => {
     
 
     useEffect(() => {
-        const fetchBlogPost = async () => {
+        const fetchProjPost = async () => {
           try {
-            const blogDocRef = doc(db, 'blogPosts', id);
+            const blogDocRef = doc(db, 'projPost', id);
             const blogDoc = await getDoc(blogDocRef);
             if (blogDoc.exists()) {
-              setBlogPost(blogDoc.data()); // Set the usestates here and we should not have a problem!
+              setProjPost(blogDoc.data()); // Set the usestates here and we should not have a problem!
               
             } else {
-              setError('Blog post not found');
+              setError('Project post not found');
             }
           } catch (err) {
             setError('Error fetching blog post: ' + err.message);
@@ -49,7 +49,7 @@ const EditBlog = () => {
           }
         };
     
-        fetchBlogPost();
+        fetchProjPost();
 
         
 
@@ -58,14 +58,14 @@ const EditBlog = () => {
       }, []);
 
       useEffect(()=>{
-        if (blogPost!=null) {
-          setTitle(blogPost.title);
-          setDesc(blogPost.desc);
-          setPost(blogPost.post)
-          setImageUrl(blogPost.imageUrl)
+        if (projPost!=null) {
+          setTitle(projPost.title);
+          setDesc(projPost.desc);
+          setPost(projPost.post)
+          setImageUrl(projPost.imageUrl)
         }
 
-      },[blogPost,id]);
+      },[projPost,id]);
       
 
           // This is where we are going to put all of our use states
@@ -94,7 +94,7 @@ const EditBlog = () => {
 
       const handleEdit = async () => {
         try {
-            const docRef = doc(db, 'blogPosts', id);
+            const docRef = doc(db, 'projPost', id);
             await updateDoc(docRef, {
                 title: title,
                 desc: desc,
@@ -102,12 +102,12 @@ const EditBlog = () => {
                 imageUrl: imageUrl
                 // Add other fields as needed
             });
-            console.log("Blog post updated successfully!");
-            alert('Blog edited submitted successfully!');
+            console.log("Project post updated successfully!");
+            alert('Project edited submitted successfully!');
             // Optionally redirect or show success message
         } catch (error) {
-            alert("Error updating blog post:", error);
-            console.log("Error updating blog post:", error);
+            alert("Error updating project post:", error);
+            console.log("Error updating project post:", error);
             // Handle error state or show error message
        }
     };
@@ -117,7 +117,7 @@ const EditBlog = () => {
       try {
         setError("")
         setImageUrl("") // we are clearing house for now
-        setUploading(true)
+        setUploading(true);
         const storage = getStorage();
         const file = files[0];
         const storageRef = ref(storage, `images/${file.name}`);
@@ -147,7 +147,7 @@ const EditBlog = () => {
         console.error('Error uploading file:', error);
         setError("Error in the upload")
       } finally {
-        setUploading(false)
+        setUploading(false);
       }
     };
 
@@ -156,7 +156,7 @@ const EditBlog = () => {
 
 
     return <><Grid  container direction={"column"} justifyContent={"flex-start"} alignItems={"center"} spacing={2} marginTop={4}>
-        <Grid item ><Typography variant="h4" align="left" sx={{marginLeft:"5vh", marginRight:"95vh"}}>Edit Blog</Typography></Grid>
+        <Grid item ><Typography variant="h4" align="left" sx={{marginLeft:"5vh", marginRight:"95vh"}}>Edit Project</Typography></Grid>
         
         <Grid item > <TextField placeholder="Title" value={title} fullWidth="true"  sx={{width:"100vh",  borderRadius:"4px"}} onChange={(e)=> setTitle(e.target.value)}/></Grid>
 
@@ -191,7 +191,7 @@ const EditBlog = () => {
 
 }
 
-export default EditBlog;
+export default EditProj;
 
 // It looks like  you dont need use states, this is where you last left off
 // Some error when clicking onto it
