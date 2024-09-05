@@ -20,6 +20,8 @@ import EditBlog from './pages/EditBlog';
 import WriteProj from './pages/WriteProj';
 import EditProj from './pages/EditProj';
 import EditHome from './pages/EditHome';
+import WritePersonl from './pages/WritePersonal';
+import EditPersonl from './pages/EditPersonal';
 
 function App() {
   return (
@@ -39,16 +41,20 @@ function App() {
             <Route path="login" element={<LoginCard />} />
             <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
 
-        {/* This is only temp */}
+        
             <Route path="writeblog" element={<RequireAuth><Writeblog/></RequireAuth>}/>
 
             <Route path="writeproj" element={<RequireAuth><WriteProj/></RequireAuth>}/>
 
             <Route path="editblog/:blogId" element={<RequireAuth><EditBlog/></RequireAuth>}/>
             <Route path="editproj/:projId" element={<RequireAuth><EditProj/></RequireAuth>}/>
+            
+            <Route path="editpersonal/:personalId" element={<RequireAuth><EditPersonl/></RequireAuth>}/>
 
 
             <Route path="edithomepage" element={<RequireAuth><EditHome/></RequireAuth>}/>
+
+            <Route path="writepersonal" element={<RequireAuth><WritePersonl/></RequireAuth>}/>
 
           </Route>
           
