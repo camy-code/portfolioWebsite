@@ -2,10 +2,13 @@ import { Grid, Box, Typography,  CardActionArea, Card } from "@mui/material"
 import JustLine from "../components/JustLine"
 import {useParams } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
-
+import { useState,useEffect } from "react";
 // The following is latex shit we want to cook
 import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
+
+import { db, auth} from "../services/firebase";
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
 
 
 
@@ -13,14 +16,59 @@ import 'katex/dist/katex.min.css';
 
 const IndProj = () => {
 // So it looks like I need to do this for the other args
-  const {  title } = useParams();
-  const decodedTitle = decodeURIComponent(title);
+  const {  projectId } = useParams();
+  const decodedID = decodeURIComponent(projectId);
   
   const navigate =useNavigate();
 
   const handleClick = () => {
     navigate("/project")
   }
+
+  // TODO: Add the logic to fetch the post here!
+  const [title, setTitle] = useState("Fetch error");
+  const [imgUrl, setImageUrl] = useState(''); // https://via.placeholder.com/150
+  const [post, setPost] = useState("");
+  const [projPost, setprojPost] = useState(null);
+
+  const [isLoad, setIsLoad] = useState(false);
+
+  useEffect(() => {
+    const fetchProjPost = async () => {
+      try {
+        setIsLoad(true);
+        const blogDocRef = doc(db, 'projPost', decodedID);
+        const blogDoc = await getDoc(blogDocRef);
+        if (blogDoc.exists()) {
+          setprojPost(blogDoc.data()); // Set the usestates here and we should not have a problem!
+          
+        } else {
+          console.log("error")
+        }
+      } catch (err) {
+        console.log("error")
+      } finally {
+        console.log("Done loading") // If this looks weird we may need do change this later
+        setIsLoad(false);
+      }
+    };
+
+    fetchProjPost();
+
+  }, [decodedID]);
+
+  useEffect(()=> {
+    if (projPost!=null) {
+      setTitle(projPost.title)
+      setImageUrl(projPost.imageUrl)
+      setPost(projPost.post)
+      // Make sure to double check spelling of these letter if something doesnt work
+    }
+  },[projPost,projectId]);
+
+if (isLoad) {
+  return <h1></h1>
+}
 
 return <>
 
@@ -51,7 +99,7 @@ marginBottom={3}>
 
 <Grid item>
 
-    <Typography variant="h3">{decodedTitle}</Typography>
+    <Typography variant="h3">{title}</Typography>
     </Grid>
 
 
@@ -72,7 +120,7 @@ marginBottom={3}>
                 
               }}
               alt="The house from the offer."
-              src='https://via.placeholder.com/150'
+              src={imgUrl}
             />
             </Box>
 </Grid>
@@ -82,10 +130,7 @@ marginBottom={3}>
 <Grid item>
     <Box sx={{width:'80vh'}}>
       <Typography alignItems={"center"} sx={{lineHeight:"2", fontSize:'16px'}}>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
-      but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<Latex>{`$x^2$`}</Latex>
-    
+        {post}
     </Typography>
     </Box>
     </Grid>

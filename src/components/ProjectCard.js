@@ -7,12 +7,12 @@ const ProjectCard = ({ projectId,  title, image, desc, content}) => { // Change 
   const navigate =useNavigate();
 
   const handleClick = () => {
-    const encodedTitle = encodeURIComponent(title);
-    navigate(`/project/${projectId}/${encodedTitle}`);
+    const encodedProjID = encodeURIComponent(projectId);
+    navigate(`/project/${encodedProjID}`); // so now we move this over
   };
 
   return (
-    <Card sx={{ backgroundColor: "blue", maxWidth: '100%',width:"100%", margin: ' auto' }}>
+    <Card sx={{  maxWidth: '100%',width:"100%", margin: ' auto' }}>
       <CardActionArea onClick={handleClick}>
       <CardMedia
         component="img"
@@ -25,7 +25,7 @@ const ProjectCard = ({ projectId,  title, image, desc, content}) => { // Change 
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {desc} helesloe flsefo l
+          {desc}
         </Typography>
       </CardContent>
       

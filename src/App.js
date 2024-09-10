@@ -35,7 +35,7 @@ function App() {
             <Route path="admin" element={<NoRequireAuth><Admin /></NoRequireAuth>} />
             <Route path="project" element={<Project />} />
             <Route path="resume" element={<Resume />} />
-            <Route path="project/:projectId/:title" element={<IndProj />} />
+            <Route path="project/:projectId" element={<IndProj />} />
             <Route path="blog/:blogId" element={<IndBlog />} />
 
             <Route path="login" element={<LoginCard />} />

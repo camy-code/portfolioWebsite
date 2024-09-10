@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   List,
@@ -8,24 +8,13 @@ import {
   Box,
 } from "@mui/material";
 
-// The following are my images
-import myImg1 from "../images/backlund.jpg"
-import myImg2 from "../images/bike.jpeg" // For the second hobby
-import myImg3 from "../images/write.jpg" // For the third hobby
+import { useEffect } from "react";
 
-const hobbies = [
-  {title:"Hockey", 
-    img:myImg1, 
-    desc:`Watching and playing hockey is my favourite thing to do in the whole world! I started watching hockey when the best team in the NHL (Calgary Flames) made it to the second round back in the 2021-2022 season. After a few months of watching it, I went to my first pick-up floor hockey game, learned to skate and the rest is history. My biggest advice for new players who want to just score goals is to stand in front of the net and let the good players shoot the ball at you and ricochet into the net!
-Number 11, Mikael Backlund, is my favourite player because he is a fighter just like me!`}, 
-  {title: 
-    "Cycling", 
-    img:myImg2, 
-    desc:"Cycling is one of my favourite things to do in the whole world. I started cycling in the spring of 2023 because I was tired of waiting for the bus; it has been one of my favourite ways to get around. I live on top of a hill, so the speed motivates my morning rides. Unfortunately, my motivation on the way home is not as keen! "}, 
-  {title:"Writing", 
-    img:myImg3, 
-    desc:"Writing is one of my favourite activities to do because it helps me make sense of the world. A lot of people get the idea that one writes so others can read but the more and more I write the more I see it is about organizing one’s thoughts and facilitating clear thinking. In the world of tech, I think we can lose mindfulness sometimes and writing is how I remain mindful as well as articulate to myself and others."}
-];
+// The following are my images
+
+
+import { doc, getDocs,updateDoc, collection} from 'firebase/firestore';
+import { db, auth} from "../services/firebase";
 
 
 
@@ -68,12 +57,44 @@ const MiniTalk = ({  title,DESC, theImg }) => {
 };
 
 const Hobbies = () => {
+    // This looks like where we are going to put the database stuff
+
+    const [isLoading, setLoading] =useState(false);
+    const [hobbies, setHobbies] = useState([])
+
+    useEffect(() => {
+      const fetchBlogs = async () => {
+        try {
+          setLoading(true);
+          const blogCollection = collection(db, 'personal');
+          const blogSnapshot = await getDocs(blogCollection);
+          const blogList = blogSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setHobbies(blogList); // we are setting the post now
+        } catch (error) {
+          console.error('Error fetching profile', error);
+        } finally {
+          setLoading(false)
+        }
+      };
+  
+      fetchBlogs();
+    }, []);
+
+
+
+    if (isLoading) {
+      return <h1>Loading...</h1>
+    }
+
   return (
     <>
   
       <Grid container direction="column" spacing={0} marginBottom={15}>
         {hobbies.map((hob)=> <Grid item>
-          <MiniTalk  DESC={hob.desc} theImg={hob.img} title={hob.title}/>
+          <MiniTalk  DESC={hob.desc} theImg={hob.imageUrl} title={hob.title}/>
 
         </Grid>)}
 

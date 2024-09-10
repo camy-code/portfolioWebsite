@@ -2,10 +2,11 @@
 // The following code is the card with an imae and the "about me"
 import { Link } from 'react-router-dom';
 import { Grid, Box, Typography, Button } from "@mui/material"
+import { useState } from 'react';
 
-const name = "Camden Warburton"
-const desc = "I am a undergraduate student studying at the University of Calgary. I am interested in competitive programming as well as finding ways to make introductory discrete math easier to teach."
-
+import { useEffect } from 'react';
+import { db, auth} from "../services/firebase";
+import { doc, getDocs,updateDoc, collection} from 'firebase/firestore';
 
 const CreateButton = ({title, Mycolor,myLink}) => {
     return (
@@ -20,7 +21,49 @@ const CreateButton = ({title, Mycolor,myLink}) => {
 
 const PersonalCard= () => {
 
+  const [name, setName] = useState("")
+  const [prompt, setPrompt] = useState("")
+  const [desc, setDesc] = useState("")
+  const [imgUrl, setImageUrl] = useState("")
+
+  const [personal_array, setPersonal] = useState(null) // this is ensuring that things are null
+
+
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const blogCollection = collection(db, 'profile');
+        const blogSnapshot = await getDocs(blogCollection);
+        const blogList = blogSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPersonal(blogList[0]);
+      } catch (error) {
+        console.error('Error fetching profile', error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+ useEffect( ()=> {
+  if (personal_array != null) { // this indicates we were successful
+    setName(personal_array.name)
+    setPrompt(personal_array.prompt)
+    setDesc(personal_array.bio)
+    setImageUrl(personal_array.imageUrl)
+
+    
+    console.log(personal_array.i)
+  }
+ },[personal_array]) // this will only activate if personal array changes 
+
+
+
 return <>
+
 <Grid container
 direction={"row"}
 justifyContent={"center"}
@@ -37,11 +80,12 @@ spacing={6}
     minWidth: 25,
     minHeight: 25,
     borderRadius: 100,
+    border:3,
     
     marginTop:3
   }}
-  alt="The house from the offer."
-  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+  alt="My profile image"
+  src={imgUrl}
 /> 
     </Grid>
 
@@ -59,7 +103,7 @@ spacing={6}
         <Typography variant="h3">{name}</Typography>
     </Grid>
     <Grid item>
-        <Typography variant="h6">A bit about me</Typography>
+        <Typography variant="h6">{prompt}</Typography>
     </Grid>
     <Grid item>
         <Typography variant="body1">{desc}</Typography>
@@ -92,4 +136,4 @@ marginTop={3}
 
 export default PersonalCard;
 
-// There is some error with your function here but it is time to go to bed.
+// There is some difficulty here with permissions in firebase that will need to be looked into
