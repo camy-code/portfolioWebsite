@@ -80,7 +80,14 @@ return <>
 <Grid container direction={'column'} justifyContent={'flex-start'} alignItems={'center'}
 marginBottom={3}>
 
-<Grid item marginTop={10}> 
+<Grid item>
+
+    <Typography variant="h3">{blogPost.title}</Typography>
+    </Grid>
+
+
+
+<Grid item > 
 <Box   margin={2}
             display="flex"
             justifyContent="center"
@@ -95,24 +102,24 @@ marginBottom={3}>
                 width: '100%',
                 
               }}
-              alt="This is a title image"
+              alt="The house from the offer."
               src={blogPost.imageUrl}
             />
             </Box>
 </Grid>
 
-<Grid item>
 
-    <Typography variant="h3">{blogPost.title}</Typography>
-    </Grid>
 
 <Grid item>
     <Box sx={{width:'80vh'}}>
-    <Typography variant="body1">{blogPost.post}</Typography>
+      <Typography alignItems={"center"} sx={{lineHeight:"2", fontSize:'16px'}}>
+        {blogPost.post}
+    </Typography>
     </Box>
     </Grid>
 </Grid>
 <JustLine />
+
 </>
 
 
@@ -121,4 +128,7 @@ marginBottom={3}>
 
 export default IndBlog
 
-// This is the format we need for this and now we need to do react-router shit
+
+
+// Now we need to add some filler content to make sure things look good past small toy examples
+// Also, add app check and a real password

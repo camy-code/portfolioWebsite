@@ -10,18 +10,8 @@ import { useState,useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from "../services/firebase";
 
-const blogPosts = [
-  {
-    id: 1,
-    image: 'https://via.placeholder.com/150',
-    title: 'Post 1',
-    description: 'This is the description for post 1.',
-    content: 'This is the detailed content of post 1. Lorem ipsum dolor sit amet...'
-  }
- 
-  // Add more posts as needed
-  // This is going to take some work to change with firebase so we will add later
-];
+import ProjectCard from '../components/ProjectCard';
+
 
 const Blog = () => {
   const [blogPosts, setBlogs] = useState([]);
@@ -63,12 +53,13 @@ const Blog = () => {
         <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4}>
           {blogPosts.map((post, index) => (
             <Grid item key={index} xs={12}  md={8} width={'90vh'}>
-              <BlogCard
-                blogId={post.id}
-                image={post.image}
+              <ProjectCard
+                image={post.imageUrl}
+                projectId={post.id}
                 title={post.title}
                 desc={post.desc}
-                content={post.content}
+                
+                link ="/blog/"
               />
             </Grid>
           ))}

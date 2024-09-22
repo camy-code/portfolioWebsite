@@ -1,14 +1,20 @@
 
 // The following code is the card with an imae and the "about me"
 import { Link } from 'react-router-dom';
-import { Grid, Box, Typography, Button } from "@mui/material"
+import { Grid, Box, Typography, Button, Fade } from "@mui/material"
 import { useState } from 'react';
 
 import { useEffect } from 'react';
 import { db, auth} from "../services/firebase";
 import { doc, getDocs,updateDoc, collection} from 'firebase/firestore';
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const CreateButton = ({title, Mycolor,myLink}) => {
+
+
     return (
     
  <Button component={Link} to={myLink} sx={{width:110, height:110, background:Mycolor,'&:hover': { // Customizes the hover state
@@ -25,12 +31,14 @@ const PersonalCard= () => {
   const [prompt, setPrompt] = useState("")
   const [desc, setDesc] = useState("")
   const [imgUrl, setImageUrl] = useState("")
-
+  const [loading, setLoading] = useState(true); 
   const [personal_array, setPersonal] = useState(null) // this is ensuring that things are null
 
 
+  
 
   useEffect(() => {
+    setLoading(true);
     const fetchBlogs = async () => {
       try {
         const blogCollection = collection(db, 'profile');
@@ -42,6 +50,10 @@ const PersonalCard= () => {
         setPersonal(blogList[0]);
       } catch (error) {
         console.error('Error fetching profile', error);
+      } finally {
+
+        sleep(3000);
+        setLoading(false);
       }
     };
 
@@ -56,14 +68,18 @@ const PersonalCard= () => {
     setImageUrl(personal_array.imageUrl)
 
     
-    console.log(personal_array.i)
+    
   }
  },[personal_array]) // this will only activate if personal array changes 
 
-
+if (loading) {
+  
+  return <h1></h1>
+  
+}
 
 return <>
-
+<Fade in={!loading} timeout={1500} >
 <Grid container
 direction={"row"}
 justifyContent={"center"}
@@ -129,7 +145,7 @@ marginTop={3}
 
 </Grid>
 
-
+</Fade>
 
 </>
 }
@@ -137,3 +153,5 @@ marginTop={3}
 export default PersonalCard;
 
 // There is some difficulty here with permissions in firebase that will need to be looked into
+
+// Lazy loading! TODO

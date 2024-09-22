@@ -67,7 +67,7 @@ const IndProj = () => {
   },[projPost,projectId]);
 
 if (isLoad) {
-  return <h1></h1>
+  return <h1>loading...</h1>
 }
 
 return <>
@@ -137,13 +137,8 @@ marginBottom={3}>
 </Grid>
 <JustLine />
 
-
-
 </>
-
-
 }
-
 
 export default IndProj
 

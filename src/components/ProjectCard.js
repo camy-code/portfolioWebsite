@@ -2,13 +2,14 @@ import React from 'react';
 import { Card, CardActionArea, CardMedia, CardContent, Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const ProjectCard = ({ projectId,  title, image, desc, content}) => { // Change these params later
+const ProjectCard = ({ projectId,  title, image, desc, link}) => { 
 
   const navigate =useNavigate();
+  
 
   const handleClick = () => {
     const encodedProjID = encodeURIComponent(projectId);
-    navigate(`/project/${encodedProjID}`); // so now we move this over
+    navigate(link+`${encodedProjID}`); // so now we move this over
   };
 
   return (

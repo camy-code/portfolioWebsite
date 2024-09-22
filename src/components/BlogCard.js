@@ -17,7 +17,7 @@ const BlogCard = ({ blogId,  title, image, desc }) => {
     <CardMedia
       component="img"
       height="400" // May need to change this to scale
-      image={'https://via.placeholder.com/150'}
+      image={image}
       alt={title}
     />
      <CardContent>

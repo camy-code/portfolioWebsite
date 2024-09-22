@@ -58,6 +58,7 @@ const Project= () => {
                     projectId={post.id}
                     title={post.title}
                     desc={post.desc}
+                    link = "/project/"
                     />
             </Grid>
           ))}
