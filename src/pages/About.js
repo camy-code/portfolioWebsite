@@ -1,6 +1,6 @@
 // About.js
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Fade } from '@mui/material';
 import Profile from "../components/Profile";
 
 // We need to maybe delete these later
@@ -11,6 +11,7 @@ import Hobbies from "../components/Hobbies"
 import JustLine from '../components/JustLine';
 const About=()=> {
   return (
+    <Fade in={true} timeout={1500}>
 <Grid
   container
   direction="column"
@@ -23,9 +24,10 @@ const About=()=> {
 
    <Grid item> <Hobbies/></Grid>
 
-   <Grid item> <JustLine/></Grid>
+   
 
 </Grid>
+</Fade>
   );
 }
 

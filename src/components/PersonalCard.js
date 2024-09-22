@@ -79,7 +79,8 @@ if (loading) {
 }
 
 return <>
-<Fade in={!loading} timeout={1500} >
+
+<Fade in={!loading} timeout={1750}  >
 <Grid container
 direction={"row"}
 justifyContent={"center"}

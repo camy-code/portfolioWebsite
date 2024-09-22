@@ -6,6 +6,7 @@ import {
   ListItemText,
   Typography,
   Box,
+  Fade,
 } from "@mui/material";
 
 import { useEffect } from "react";
@@ -15,7 +16,11 @@ import { useEffect } from "react";
 
 import { doc, getDocs,updateDoc, collection} from 'firebase/firestore';
 import { db, auth} from "../services/firebase";
+import JustLine from "./JustLine";
 
+function sleep(ms) { // This is the sleep function
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 
 const MiniTalk = ({  title,DESC, theImg }) => {
@@ -76,6 +81,7 @@ const Hobbies = () => {
         } catch (error) {
           console.error('Error fetching profile', error);
         } finally {
+          sleep(3000);  // We may need to change this later
           setLoading(false)
         }
       };
@@ -86,12 +92,12 @@ const Hobbies = () => {
 
 
     if (isLoading) {
-      return <h1>Loading...</h1>
+      return <div style={{ height:"100vh" }}></div>
     }
 
   return (
     <>
-  
+  <Fade in={!isLoading} timeout={1500}>
       <Grid container direction="column" spacing={0} marginBottom={15}>
         {hobbies.map((hob)=> <Grid item>
           <MiniTalk  DESC={hob.desc} theImg={hob.imageUrl} title={hob.title}/>
@@ -99,6 +105,8 @@ const Hobbies = () => {
         </Grid>)}
 
       </Grid>
+      </Fade>
+      <JustLine/>
     </>
   );
 };
