@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material"
+import { Grid, Typography, Fade } from "@mui/material"
 import JustLine from "../components/JustLine"
 import ProjectCard from "../components/ProjectCard"
 import { useState,useEffect } from "react"
@@ -12,11 +12,15 @@ import { db, auth} from "../services/firebase";
 //     id:'1'
 // } ]
 
+function sleep(ms) { // This is the sleep function
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const Project= () => {
 
   // we need to setup the variables
   const[projPosts,setProjPosts] = useState([]) // we  are making this empty for now
-  
+  const [isLoading, setLoading] =useState(true);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -27,6 +31,8 @@ const Project= () => {
           ...doc.data(),
         }));
         setProjPosts(blogList); // we are setting the post now
+        sleep(1500);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching profile', error);
       }
@@ -35,7 +41,12 @@ const Project= () => {
     fetchBlogs();
   }, []);
 
+  if (isLoading) {
+    return <h1></h1>
+  }
+
     return ( <>
+    <Fade in={!isLoading} timeout={1500}>
   <Grid container marginBottom={2} direction={"column"} >
           <Grid item container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5}>
         <Grid item>
@@ -68,6 +79,7 @@ const Project= () => {
   
   
   </Grid> 
+  </Fade>
   
   </>)
 }

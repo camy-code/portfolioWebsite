@@ -140,5 +140,3 @@ export default IndBlog
 
 
 
-// Now we need to add some filler content to make sure things look good past small toy examples
-// Also, add app check and a real password

@@ -22,6 +22,8 @@ function Header() {
           Cam Warburton
         </Typography>
         <Button color="inherit" component={Link} to="/">Home</Button>
+        <Button color="inherit" component={Link} to="/project">Projects</Button>
+        <Button color="inherit" component={Link} to="/blog">Blog</Button>
         <Button color="inherit" component={Link} to="/about">About</Button>
 
         {currentUser?  (<Button color="inherit" component={Link} to="/dashboard">Dashboard</Button>):(null)}

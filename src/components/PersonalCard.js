@@ -136,8 +136,9 @@ marginTop={3}
 >
 
 <Grid item > <CreateButton Mycolor="red" title="Projects" myLink="project"/> </Grid> 
-<Grid item > <CreateButton Mycolor="blue" title="Personal" myLink="about"/> </Grid>
 <Grid item > <CreateButton Mycolor="orange" title="Blog" myLink="blog"/> </Grid> 
+<Grid item > <CreateButton Mycolor="blue" title="About" myLink="about"/> </Grid>
+
 </Grid>
 
     </Grid>
@@ -153,6 +154,3 @@ marginTop={3}
 
 export default PersonalCard;
 
-// There is some difficulty here with permissions in firebase that will need to be looked into
-
-// Lazy loading! TODO

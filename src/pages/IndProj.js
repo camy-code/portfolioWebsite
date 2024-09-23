@@ -1,4 +1,4 @@
-import { Grid, Box, Typography,  CardActionArea, Card } from "@mui/material"
+import { Grid, Box, Typography,  CardActionArea, Card, Fade } from "@mui/material"
 import JustLine from "../components/JustLine"
 import {useParams } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
@@ -67,11 +67,12 @@ const IndProj = () => {
   },[projPost,projectId]);
 
 if (isLoad) {
-  return <h1>loading...</h1>
+  return <h1></h1>
 }
 
 return <>
-
+<Fade in={!isLoad} timeout={1500}>
+<div>
 <JustLine />
 <Grid
   container
@@ -136,6 +137,8 @@ marginBottom={3}>
     </Grid>
 </Grid>
 <JustLine />
+</div>
+</Fade>
 
 </>
 }

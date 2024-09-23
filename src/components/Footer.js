@@ -25,7 +25,7 @@ function Footer() {
 
 
   return (
-    <footer style={{ backgroundColor: '#227c9d', color: '#fff', padding: '1vh', marginTop: 'auto' }}>
+    <footer style={{ backgroundColor: '#227c9d', color: '#fff', padding: '1vh', marginTop: 'auto'}}>
       <Container maxWidth="md" style={{  justifyContent: 'row', alignItems: 'center', height: '100%' }}>
      
    

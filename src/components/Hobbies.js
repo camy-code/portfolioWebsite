@@ -81,7 +81,7 @@ const Hobbies = () => {
         } catch (error) {
           console.error('Error fetching profile', error);
         } finally {
-          sleep(3000);  // We may need to change this later
+          sleep(1500);  // We may need to change this later
           setLoading(false)
         }
       };
