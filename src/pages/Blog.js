@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, Fade } from '@mui/material';
 import BlogCard from '../components/BlogCard';
 import JustLine from '../components/JustLine';
 
@@ -12,12 +12,17 @@ import { db } from "../services/firebase";
 
 import ProjectCard from '../components/ProjectCard';
 
+function sleep(ms) { // This is the sleep function
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 const Blog = () => {
   const [blogPosts, setBlogs] = useState([]);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchBlogs = async () => {
+      setLoading(true);
       try {
         const blogCollection = collection(db, 'blogPosts');
         const blogSnapshot = await getDocs(blogCollection);
@@ -26,6 +31,8 @@ const Blog = () => {
           ...doc.data(),
         }));
         setBlogs(blogList);
+        sleep(3000);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching blog posts:', error);
       }
@@ -34,9 +41,14 @@ const Blog = () => {
     fetchBlogs();
   }, []);
 
+  if (isLoading) {
+    return <h1></h1>
+  }
 
 
   return (
+
+    <Fade in={!isLoading} timeout={1500}>
     <Grid container marginBottom={2}>
       <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5} marginBottom={4}>
         <Grid item>
@@ -68,6 +80,7 @@ const Blog = () => {
 
       <JustLine /> 
     </Grid>
+    </Fade>
   );
 };
 

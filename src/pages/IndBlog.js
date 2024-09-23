@@ -1,18 +1,21 @@
-import { Grid, Box, Typography, Button, CardActionArea, Card, Divider } from "@mui/material"
+import { Grid, Box, Typography, CardActionArea, Card, Fade } from "@mui/material"
 import JustLine from "../components/JustLine"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
 
 import { useState,useEffect } from "react";
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from "../services/firebase";
 
-// The following is the page for the individual project.
+function sleep(ms) { // This is the sleep function
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 const IndBlog = () => {
 // So it looks like I need to do this for the other args
   const { blogId } = useParams();
   const id = decodeURIComponent(blogId);
+ 
   
   const navigate =useNavigate();
 
@@ -21,32 +24,33 @@ const IndBlog = () => {
   }
 
   const [blogPost, setBlogPost] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Maybe we need to get this here
   const [error, setError] = useState(null);
 
 
   useEffect(() => {
     const fetchBlogPost = async () => {
+     
       try {
         const blogDocRef = doc(db, 'blogPosts', id);
         const blogDoc = await getDoc(blogDocRef);
         if (blogDoc.exists()) {
           setBlogPost(blogDoc.data());
+          sleep(1500);
+          setLoading(false);
         } else {
           setError('Blog post not found');
         }
       } catch (err) {
         setError('Error fetching blog post: ' + err.message);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
-
+   
     fetchBlogPost();
-  }, [id]);
+  }); // So this needs to be empty?
 
   if (loading) {
-    return <div>Loading...</div>;
+    return  <div style={{ height:"100vh" }}></div>;
   }
 
   if (error) {
@@ -55,7 +59,9 @@ const IndBlog = () => {
 
 return <>
 
-<JustLine />
+{/* <JustLine /> */}
+<Fade in={!loading } timeout={1500}>
+  <div>
 <Grid
   container
   direction="row"
@@ -97,7 +103,7 @@ marginBottom={3}>
 <Box // May need to change these settings but we are just trying to get everything on the page for now
               component="img"
               sx={{
-                objectFit: 'cover',
+                objectFit: 'none',
                 height: '100%',
                 width: '100%',
                 
@@ -120,6 +126,10 @@ marginBottom={3}>
 </Grid>
 <JustLine />
 
+
+
+</div>
+</Fade>
 </>
 
 

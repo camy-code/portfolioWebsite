@@ -52,7 +52,7 @@ const PersonalCard= () => {
         console.error('Error fetching profile', error);
       } finally {
 
-        sleep(3000);
+        sleep(1500);
         setLoading(false);
       }
     };
