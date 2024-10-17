@@ -11,7 +11,7 @@ function Profile() {
     justifyContent={"flex-start"} 
     alignItems={"center"} 
     paddingTop={15} paddingBottom={5} 
-    backgroundColor="red"
+    backgroundColor="#F6F8FF"
  
  >
       <Grid item><Typography variant="h2">Personal</Typography></Grid>

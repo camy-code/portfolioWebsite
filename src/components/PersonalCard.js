@@ -18,7 +18,7 @@ const CreateButton = ({title, Mycolor,myLink}) => {
     return (
     
  <Button component={Link} to={myLink} sx={{width:110, height:110, background:Mycolor,'&:hover': { // Customizes the hover state
-    backgroundColor: "#FFFAFF"}, borderRadius:75, color:"#000000",border:"2px solid black"
+    backgroundColor: "#F6F8FF"}, borderRadius:75, color:"#000000",border:"2px solid black"
     }}>
   {title}</Button>  
     )
@@ -135,9 +135,9 @@ marginTop={3}
 
 >
 
-<Grid item > <CreateButton Mycolor="red" title="Projects" myLink="project"/> </Grid> 
-<Grid item > <CreateButton Mycolor="orange" title="Blog" myLink="blog"/> </Grid> 
-<Grid item > <CreateButton Mycolor="blue" title="About" myLink="about"/> </Grid>
+<Grid item > <CreateButton Mycolor="#20a4f3" title="Projects" myLink="project"/> </Grid> 
+<Grid item > <CreateButton Mycolor="#39a8a8" title="Blog" myLink="blog"/> </Grid> 
+<Grid item > <CreateButton Mycolor="#f1a208" title="About" myLink="about"/> </Grid>
 
 </Grid>
 

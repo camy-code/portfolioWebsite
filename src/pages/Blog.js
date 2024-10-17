@@ -50,7 +50,7 @@ const Blog = () => {
 
     <Fade in={!isLoading} timeout={1500}>
     <Grid container marginBottom={2}>
-      <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5} marginBottom={4}>
+      <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="#F6F8FF" paddingTop={15} paddingBottom={5} marginBottom={4}>
         <Grid item>
           <Typography variant='h2'>Blog</Typography>
         </Grid>

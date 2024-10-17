@@ -48,7 +48,7 @@ const Project= () => {
     return ( <>
     <Fade in={!isLoading} timeout={1500}>
   <Grid container marginBottom={2} direction={"column"} >
-          <Grid item container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="red" paddingTop={15} paddingBottom={5}>
+          <Grid item container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="#F6F8FF" paddingTop={15} paddingBottom={5}>
         <Grid item>
           <Typography variant='h2'>Projects</Typography>
         </Grid>

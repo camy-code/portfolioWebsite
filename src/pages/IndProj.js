@@ -85,7 +85,7 @@ return <>
 >
   <Grid item>
   <CardActionArea onClick={handleClick}> 
-    <Card sx={{padding:3, backgroundColor:"red", borderRadius:5, "&:hover":{borderRadius:5, backgroundColor:"blue"}}}>
+    <Card sx={{padding:3, backgroundColor:"#F6F8FF", borderRadius:5, "&:hover":{borderRadius:5, backgroundColor:"#E1E5F2", padding:3}}}>
       
         <Typography variant="h6">Go Back</Typography>
       
