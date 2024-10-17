@@ -17,12 +17,12 @@ function LoginCard() {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
     } catch (error) {
-      setError(error.message);
+      setError("Invalid username/password");
     }
   };
 
   return (
-    <Paper style={{ padding: '50px', width: '50%', backgroundColor: "#EAE8EB", borderRadius: "20px" }}>
+    <Paper style={{ padding: '50px', width: '30%', backgroundColor: "#EAE8EB", borderRadius: "20px", margin:"auto", marginTop:"10%" }}>
       <Typography variant="h6" gutterBottom>
         Login
       </Typography>

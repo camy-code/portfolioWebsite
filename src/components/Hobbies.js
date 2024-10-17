@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import { doc, getDocs,updateDoc, collection} from 'firebase/firestore';
 import { db, auth} from "../services/firebase";
 import JustLine from "./JustLine";
+import MarkdownRenderer from "./MarkDownRenderer";
 
 function sleep(ms) { // This is the sleep function
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -38,8 +39,7 @@ const MiniTalk = ({  title,DESC, theImg }) => {
         <Box sx={{width:500}}>
             <Typography variant="h4">{title}</Typography>
 
-        {DESC.toString().split("\n").map((para)=> <><Typography sx={{lineHeight:"2", fontSize:'16px'}}> {para}</Typography> 
-        <br/></>)}
+        <MarkdownRenderer content={DESC}/>
         
         </Box>
       </Grid>

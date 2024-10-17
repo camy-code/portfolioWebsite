@@ -13,6 +13,7 @@
     "better-react-mathjax": "^2.0.3",
     "firebase": "^10.12.2",
     "framer-motion": "^11.2.12",
+    "mathjax-react": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",

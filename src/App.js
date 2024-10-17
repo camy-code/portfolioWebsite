@@ -38,7 +38,7 @@ function App() {
             <Route path="project/:projectId" element={<IndProj />} />
             <Route path="blog/:blogId" element={<IndBlog />} />
 
-            <Route path="login" element={<LoginCard />} />
+            <Route path="login" element={<Admin />} />
             <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
 
         
