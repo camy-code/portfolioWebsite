@@ -9,6 +9,7 @@ import 'katex/dist/katex.min.css';
 
 import { db, auth} from "../services/firebase";
 import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import MarkdownRenderer from "../components/MarkDownRenderer";
 
 
 
@@ -100,7 +101,8 @@ marginBottom={3}>
 
 <Grid item>
 
-    <Typography variant="h3">{title}</Typography>
+    <Typography variant="h3" sx={{fontSize:"3rem", color: '#333'}}>{title}</Typography>
+   
     </Grid>
 
 
@@ -130,9 +132,9 @@ marginBottom={3}>
 
 <Grid item>
     <Box sx={{width:'80vh'}}>
-      <Typography alignItems={"center"} sx={{lineHeight:"2", fontSize:'16px'}}>
-        {post}
-    </Typography>
+      {/* This is where we change to markdown */}
+      
+    <MarkdownRenderer content={post}/>
     </Box>
     </Grid>
 </Grid>

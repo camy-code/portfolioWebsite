@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState,useEffect } from "react";
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from "../services/firebase";
+import MarkdownRenderer from "../components/MarkDownRenderer";
 
 function sleep(ms) { // This is the sleep function
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -88,7 +89,7 @@ marginBottom={3}>
 
 <Grid item>
 
-    <Typography variant="h3">{blogPost.title}</Typography>
+    <Typography variant="h3" sx={{fontSize:"3rem", color: '#333'}}>{blogPost.title}</Typography>
     </Grid>
 
 
@@ -118,9 +119,7 @@ marginBottom={3}>
 
 <Grid item>
     <Box sx={{width:'80vh'}}>
-      <Typography alignItems={"center"} sx={{lineHeight:"2", fontSize:'16px'}}>
-        {blogPost.post}
-    </Typography>
+     <MarkdownRenderer content={blogPost.post}/>
     </Box>
     </Grid>
 </Grid>

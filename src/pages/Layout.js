@@ -15,10 +15,11 @@ const Layout = () => {
       <Header/>
    
 
-        <Outlet />
+        <Outlet/>
       
 
-      <Footer/>
+    
+      <Footer />
     </Box>
   )
 };
