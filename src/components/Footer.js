@@ -1,10 +1,14 @@
 import React from 'react';
-import { Typography, Container, Grid, Button } from '@mui/material';
+import { Container, Grid, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 import { auth } from '../services/firebase';
 import { useState } from "react";
 import { signOut } from "firebase/auth";
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
 
 function Footer() {
   const { currentUser } = useAuth();
@@ -28,6 +32,15 @@ function Footer() {
           justifyContent="center"
           alignItems="center"
         >
+          <Grid item >
+            <Grid container direction={"row"} justifyContent={"center"} alignItems={"flex-start"} spacing={3}>
+              <Grid item><Button href='https://github.com/camy-code' sx={{color:"white"}}> <GitHubIcon/> </Button></Grid>
+              <Grid item><Button  href='https://www.linkedin.com/in/camden-warburton-1bbb66333/'sx={{color:"white"}}><LinkedInIcon/> </Button></Grid> 
+              {/* Update linkden! */}
+
+            </Grid>
+          </Grid>
+
           <Grid item>
             {currentUser ? (
               <Button color='inherit' variant='text' onClick={handleClick}>Log out</Button>

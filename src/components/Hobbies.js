@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import {
   Grid,
-  List,
-  ListItem,
-  ListItemText,
+  
   Typography,
   Box,
   Fade,
@@ -48,8 +46,8 @@ const MiniTalk = ({  title,DESC, theImg }) => {
         <Box
           component="img"
           sx={{
-            height: 450,
-            width: 600,
+           // height: { xs: "30vh", sm: "70vh" }, // Dynamic height based on screen
+            width: { xs: "30vh", sm: "50vh" }
           }}
           alt="The house from the offer."
           src={theImg}
