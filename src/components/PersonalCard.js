@@ -54,6 +54,7 @@ const PersonalCard = () => {
       } finally {
         await sleep(1500);
         setLoading(false);
+        await sleep(250); // Just add some more sleep just in case
       }
     };
 
