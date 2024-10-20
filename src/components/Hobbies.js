@@ -34,7 +34,12 @@ const MiniTalk = ({  title,DESC, theImg }) => {
     spacing={10}
     >
         <Grid item paddingLeft={4} paddingRight={4} >
-        <Box sx={{width:500}}>
+        <Box sx={{
+  width: {
+    xs: '90vw', // 90% of the viewport width on extra-small screens (mobile)
+    md: 500,    // Fixed 500px width on medium screens and above (desktop)
+  }
+}}>
             <Typography variant="h4">{title}</Typography>
 
         <MarkdownRenderer content={DESC}/>
