@@ -39,8 +39,10 @@ const MiniTalk = ({  title,DESC, theImg }) => {
     xs: '90vw', // 90% of the viewport width on extra-small screens (mobile)
     md: 500,    // Fixed 500px width on medium screens and above (desktop)
   }
-}}>
+}}
+padding={1}>
             <Typography variant="h4">{title}</Typography>
+
 
         <MarkdownRenderer content={DESC}/>
         
@@ -52,7 +54,8 @@ const MiniTalk = ({  title,DESC, theImg }) => {
           component="img"
           sx={{
            // height: { xs: "30vh", sm: "70vh" }, // Dynamic height based on screen
-            width: { xs: "30vh", sm: "50vh" }
+            width: { xs: "90vw", sm: "50vh" },
+            margin:{xs:-1}
           }}
           alt="The house from the offer."
           src={theImg}
@@ -84,8 +87,9 @@ const Hobbies = () => {
         } catch (error) {
           console.error('Error fetching profile', error);
         } finally {
-          sleep(1500);  // We may need to change this later
+          sleep(250);  // We may need to change this later
           setLoading(false)
+          sleep(250);  // We may need to change this later
         }
       };
   
