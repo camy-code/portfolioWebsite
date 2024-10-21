@@ -52,9 +52,9 @@ const PersonalCard = () => {
       } catch (error) {
         console.error('Error fetching profile', error);
       } finally {
-        await sleep(250);
+        
         setLoading(false);
-        await sleep(250); // Just add some more sleep just in case
+        await sleep(450); // Just add some more sleep just in case
       }
     };
 
