@@ -26,11 +26,17 @@ const MiniTalk = ({  title,DESC, theImg }) => {
   return (
     <Grid
     container
-    direction="row"
     justifyContent="center"
     alignItems="flex-start"
     marginTop={7}
     
+    sx={{
+      flexDirection: {
+        xs:"column",
+        md:"row"
+      }
+    }}
+
     spacing={10}
     >
         <Grid item paddingLeft={4} paddingRight={4} >
@@ -40,7 +46,7 @@ const MiniTalk = ({  title,DESC, theImg }) => {
     md: 500,    // Fixed 500px width on medium screens and above (desktop)
   }
 }}
-padding={1}>
+>
             <Typography variant="h4">{title}</Typography>
 
 
@@ -54,8 +60,8 @@ padding={1}>
           component="img"
           sx={{
            // height: { xs: "30vh", sm: "70vh" }, // Dynamic height based on screen
-            width: { xs: "90vw", sm: "50vh" },
-            margin:{xs:-1}
+            width: { xs: "90vw", sm: "70vh" },
+            
           }}
           alt="The house from the offer."
           src={theImg}
@@ -102,7 +108,9 @@ const Hobbies = () => {
       return <div style={{ height:"100vh" }}></div>
     }
 
-  return (
+
+    // Just change grid container to be rows on smaller screens (I think)
+  return ( 
     <>
   <Fade in={!isLoading} timeout={1500}>
       <Grid container direction="column" spacing={0} marginBottom={15}>

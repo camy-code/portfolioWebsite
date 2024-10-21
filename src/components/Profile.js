@@ -14,8 +14,8 @@ function Profile() {
     backgroundColor="#F6F8FF"
  
  >
-      <Grid item><Typography variant="h2">Personal</Typography></Grid>
-      <Grid item><Typography variant="h5">What I do with free time</Typography></Grid>
+<Grid item><Typography variant="h2">Personal</Typography></Grid>
+<Grid item><Typography variant="h5">What I do with free time</Typography></Grid>
 
       
       
