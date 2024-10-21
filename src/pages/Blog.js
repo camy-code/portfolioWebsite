@@ -31,8 +31,9 @@ const Blog = () => {
           ...doc.data(),
         }));
         setBlogs(blogList);
-        sleep(3000);
+        sleep(250)
         setLoading(false);
+        sleep(250)
       } catch (error) {
         console.error('Error fetching blog posts:', error);
       }
@@ -48,38 +49,39 @@ const Blog = () => {
 
   return (
 
-    <Fade in={!isLoading} timeout={1500}>
-    <Grid container marginBottom={2}>
-      <Grid container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="#F6F8FF" paddingTop={15} paddingBottom={5} marginBottom={4}>
-        <Grid item>
-          <Typography variant='h2'>Blog</Typography>
+    <Fade in={!isLoading} timeout={750}>
+    <Grid container marginBottom={2} direction={"column"} >
+            <Grid item container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="#F6F8FF" paddingTop={15} paddingBottom={5} >
+          <Grid item>
+            <Typography variant='h2'>Blog try</Typography>
+          </Grid>
+          {/* <Grid item>
+            <Typography variant='h5'>Things I have worked on</Typography>
+          </Grid> */}
         </Grid>
-        <Grid item>
-          <Typography variant='h5'>Ideas to share</Typography>
-        </Grid>
-      </Grid>
-
-     <JustLine/>
-
-      <Container>
-        <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4}>
-          {blogPosts.map((post, index) => (
-            <Grid item key={index} xs={12}  md={8} width={'90vh'}>
-              <ProjectCard
-                image={post.imageUrl}
-                projectId={post.id}
-                title={post.title}
-                desc={post.desc}
-                
-                link ="/blog/"
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-
-      <JustLine /> 
-    </Grid>
+    
+          <Grid item marginBottom={3}> <JustLine/></Grid>
+  
+  
+          <Grid item container direction="column" justifyContent="center" alignItems="center" spacing={2}>
+              {/* This is where we are going to put Project posts */}
+              {blogPosts.map((post, index) => (
+              <Grid item key={index} xs={12}  md={8} >
+                  <ProjectCard
+                      image={post.imageUrl}
+                      projectId={post.id}
+                      title={post.title}
+                      desc={post.desc}
+                      link = "/blog/"
+                      />
+              </Grid>
+            ))}
+          </Grid>
+      
+          <Grid item marginTop={3}> </Grid>
+    
+    
+    </Grid> 
     </Fade>
   );
 };

@@ -31,8 +31,9 @@ const Project= () => {
           ...doc.data(),
         }));
         setProjPosts(blogList); // we are setting the post now
-        sleep(1500);
+        sleep(250);
         setLoading(false);
+        sleep(250)
       } catch (error) {
         console.error('Error fetching profile', error);
       }
@@ -46,9 +47,9 @@ const Project= () => {
   }
 
     return ( <>
-    <Fade in={!isLoading} timeout={1500}>
+    <Fade in={!isLoading} timeout={750}>
   <Grid container marginBottom={2} direction={"column"} >
-          <Grid item container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="#F6F8FF" paddingTop={15} paddingBottom={5}>
+          <Grid item container direction="column" justifyContent="flex-start" alignItems="center" backgroundColor="#F6F8FF" paddingTop={15} paddingBottom={5} >
         <Grid item>
           <Typography variant='h2'>Projects</Typography>
         </Grid>
@@ -63,7 +64,7 @@ const Project= () => {
         <Grid item container direction="column" justifyContent="center" alignItems="center" spacing={2}>
             {/* This is where we are going to put Project posts */}
             {projPosts.map((post, index) => (
-            <Grid item key={index} xs={12}  md={8} width={'90vh'}>
+            <Grid item key={index} xs={12}  md={8} >
                 <ProjectCard
                     image={post.imageUrl}
                     projectId={post.id}

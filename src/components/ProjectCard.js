@@ -11,7 +11,7 @@ const ProjectCard = ({ projectId, title, image, desc, link }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: '100%', width: { xs: '100%', sm: '90%', md: '80%' }, margin: 'auto', boxShadow: 3 }}>
+    <Card sx={{ maxWidth: '100%', width: { xs: '90vw', sm: '612px' }, margin: 'auto', boxShadow: 3 }}>
       <CardActionArea onClick={handleClick}>
         <CardMedia
           component="img"
