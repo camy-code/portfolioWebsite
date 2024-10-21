@@ -28,6 +28,10 @@ const IndBlog = () => {
   const [loading, setLoading] = useState(true); // Maybe we need to get this here
   const [error, setError] = useState(null);
 
+  // The following is the items we need
+  const [title, setTitle] = useState("");
+  const [post, setPost] = useState("");
+  const [imgUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     const fetchBlogPost = async () => {
@@ -37,8 +41,15 @@ const IndBlog = () => {
         const blogDoc = await getDoc(blogDocRef);
         if (blogDoc.exists()) {
           setBlogPost(blogDoc.data());
-          sleep(1500);
+          if (blogPost!=null) {
+            setTitle(blogPost.title);
+            setPost(blogPost.post);
+            setImageUrl(blogPost.imageUrl)
+          }
+
+          sleep(250);
           setLoading(false);
+          sleep(250);
         } else {
           setError('Blog post not found');
         }
@@ -59,11 +70,9 @@ const IndBlog = () => {
   }
 
 return <>
-
-{/* <JustLine /> */}
-<Fade in={!loading } timeout={1500}>
-  <div > 
-    {/* Testing to see if this work */}
+<Fade in={!loading} timeout={750}>
+<div>
+<JustLine />
 <Grid
   container
   direction="row"
@@ -86,32 +95,33 @@ return <>
 
 
 <Grid container direction={'column'} justifyContent={'flex-start'} alignItems={'center'}
-marginBottom={3}>
+marginBottom={3}  sx={{width:{xs:"95%", md:"100vw"}}} marginTop={1}>
 
-<Grid item>
+<Grid item marginBottom={1}>
 
-    <Typography variant="h3" sx={{fontSize:"3rem", color: '#333'}}>{blogPost.title}</Typography>
+    <Typography variant="h3" sx={{fontSize:{xs:"2rem" ,md:"3rem"}, color: '#333'}}>{title}</Typography>
+   
     </Grid>
 
 
 
 <Grid item > 
-<Box   margin={2}
+<Box   
             display="flex"
             justifyContent="center"
             alignItems="center"
-            height="50vh"
-            width='80vh'>
+            
+            sx={{width:{xs:"95%", md:"755px"}, height:{xs:"55%", md:"471px"}}}>
 <Box // May need to change these settings but we are just trying to get everything on the page for now
               component="img"
               sx={{
-                objectFit: 'none',
+                objectFit: 'cover',
                 height: '100%',
                 width: '100%',
                 
               }}
               alt="The house from the offer."
-              src={blogPost.imageUrl}
+              src={imgUrl}
             />
             </Box>
 </Grid>
@@ -119,17 +129,17 @@ marginBottom={3}>
 
 
 <Grid item>
-    <Box sx={{width:'80vh'}}>
-     <MarkdownRenderer content={blogPost.post}/>
+    <Box sx={{width:{xs:"85vw", md:"755px"}}}>
+      {/* This is where we change to markdown */}
+      
+    <MarkdownRenderer content={post}/>
     </Box>
     </Grid>
 </Grid>
 <JustLine />
-
-
-
 </div>
 </Fade>
+
 </>
 
 

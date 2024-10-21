@@ -72,7 +72,7 @@ if (isLoad) {
 }
 
 return <>
-<Fade in={!isLoad} timeout={1500}>
+<Fade in={!isLoad} timeout={750}>
 <div>
 <JustLine />
 <Grid
@@ -97,23 +97,23 @@ return <>
 
 
 <Grid container direction={'column'} justifyContent={'flex-start'} alignItems={'center'}
-marginBottom={3}>
+marginBottom={3}  sx={{width:{xs:"95%", md:"100vw"}}} marginTop={1}>
 
-<Grid item>
+<Grid item marginBottom={1}>
 
-    <Typography variant="h3" sx={{fontSize:"3rem", color: '#333'}}>{title}</Typography>
+    <Typography variant="h3" sx={{fontSize:{xs:"2rem" ,md:"3rem"}, color: '#333'}}>{title}</Typography>
    
     </Grid>
 
 
 
 <Grid item > 
-<Box   margin={2}
+<Box   
             display="flex"
             justifyContent="center"
             alignItems="center"
-            height="50vh"
-            width='80vh'>
+            
+            sx={{width:{xs:"95%", md:"755px"}, height:{xs:"55%", md:"471px"}}}>
 <Box // May need to change these settings but we are just trying to get everything on the page for now
               component="img"
               sx={{
@@ -131,7 +131,7 @@ marginBottom={3}>
 
 
 <Grid item>
-    <Box sx={{width:'80vh'}}>
+    <Box sx={{width:{xs:"85vw", md:"755px"}}}>
       {/* This is where we change to markdown */}
       
     <MarkdownRenderer content={post}/>
