@@ -5,7 +5,7 @@ import JustLine from "../components/JustLine";
 
 function Home() {
   return (
-    <div style={{ height: "80vh" }}>
+    <div style={{ }}>
       <JustLine />
       <Grid
         container
