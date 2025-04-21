@@ -2,7 +2,7 @@
 import React from 'react';
 import { Grid, Fade } from '@mui/material';
 import Profile from "../components/Profile";
-
+  // adding a dummy comment
 // We need to maybe delete these later
 import Education from "../components/Education";
 import Teach from "../components/Teach"
