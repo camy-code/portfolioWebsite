@@ -1,3 +1,13 @@
+## Cam notes
+- ```SOrigin``` is your public origin
+- ```orgin``` is your private remote
+
+## How to redeploy something on your site.
+```
+npm run build
+firebase deploy
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
