@@ -42,7 +42,7 @@ const MarkdownRenderer = ({ content }) => {
       components={{
         h1: ({ node, ...props }) => <h1 style={styles.h1} {...props} />,
         p: ({ node, ...props }) => <p style={styles.p} {...props} />,
-        a: ({ node, ...props }) => <a style={styles.a} {...props} />,
+        a: ({ node, ...props }) => <a style={styles.a} {...props} target='_blank' rel="noopener noreferrer"/>,
         code: ({ node, inline, ...props }) =>
           inline ? (
             <code style={styles.code} {...props} />
