@@ -34,8 +34,8 @@ function Footer() {
         >
           <Grid item >
             <Grid container direction={"row"} justifyContent={"center"} alignItems={"flex-start"} spacing={3}>
-              <Grid item><Button href='https://github.com/camy-code' sx={{color:"white"}}> <GitHubIcon/> </Button></Grid>
-              <Grid item><Button  href='https://www.linkedin.com/in/camden-warburton-1bbb66333/'sx={{color:"white"}}><LinkedInIcon/> </Button></Grid> 
+              <Grid item><Button href='https://github.com/camy-code' target='_blank' rel="noopener noreferrer" sx={{color:"white"}}> <GitHubIcon/> </Button></Grid>
+              <Grid item><Button  href='https://www.linkedin.com/in/camden-warburton-1bbb66333/' target='_blank' rel="noopener noreferrer" sx={{color:"white"}}><LinkedInIcon/> </Button></Grid> 
               {/* Update linkden! */}
 
             </Grid>
