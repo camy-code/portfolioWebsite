@@ -8,6 +8,7 @@ import { signOut } from "firebase/auth";
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
 
 
 function Footer() {
@@ -36,6 +37,7 @@ function Footer() {
             <Grid container direction={"row"} justifyContent={"center"} alignItems={"flex-start"} spacing={3}>
               <Grid item><Button href='https://github.com/camy-code' target='_blank' rel="noopener noreferrer" sx={{color:"white"}}> <GitHubIcon/> </Button></Grid>
               <Grid item><Button  href='https://www.linkedin.com/in/camden-warburton-1bbb66333/' target='_blank' rel="noopener noreferrer" sx={{color:"white"}}><LinkedInIcon/> </Button></Grid> 
+               <Grid item><Button  href="mailto:camlikestea@gmail.com" sx={{color:"white"}}><EmailIcon/> </Button></Grid> 
               {/* Update linkden! */}
 
             </Grid>
